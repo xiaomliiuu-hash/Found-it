@@ -51,11 +51,14 @@ Page({
     soonestName: '',
     soonestDaysText: '',
     notifyEnabled: true,
-    themeColor: '#FF7A45',
+    themeStyle: '',
     showOnboarding: false
   },
 
   onShow() {
+    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
+      this.getTabBar().setData({ selected: 0 })
+    }
     this.refresh()
   },
 
@@ -100,7 +103,7 @@ Page({
       soonestName,
       soonestDaysText,
       notifyEnabled: settings.notifyEnabled !== false,
-      themeColor: theme.getThemeColor(),
+      themeStyle: theme.getThemeStyle(),
       showOnboarding: settings.onboarded !== true
     })
     this.applyFilter()

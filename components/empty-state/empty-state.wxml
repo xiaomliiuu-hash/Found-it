@@ -1,4 +1,6 @@
 <view class="empty">
-  <text class="icon">{{icon}}</text>
+  <view class="icon-bubble">
+    <text class="icon">{{icon}}</text>
+  </view>
   <text class="text">{{text}}</text>
 </view>

@@ -14,6 +14,7 @@
   line-height: 72rpx;
   font-size: 28rpx;
   box-sizing: border-box;
+  box-shadow: var(--shadow-card, 0 6rpx 20rpx rgba(255, 122, 69, 0.12));
 }
 
 /* 空间切换 */
@@ -40,13 +41,13 @@
 }
 
 .space-active {
-  background: var(--primary, #FF7A45);
+  background: var(--primary-grad, linear-gradient(135deg, #FFB199, #FF7A45));
   color: #fff;
   font-weight: 600;
 }
 
 .space-add {
-  background: #FFF3EE;
+  background: var(--primary-tint, #FFF3EE);
   color: var(--primary, #FF7A45);
 }
 
@@ -151,21 +152,22 @@
 }
 
 .guide-btn {
-  background: var(--primary, #FF7A45);
+  background: var(--primary-grad, linear-gradient(135deg, #FFB199, #FF7A45));
   color: #fff;
   border-radius: 999rpx;
   padding: 24rpx;
   font-size: 32rpx;
   font-weight: 600;
+  box-shadow: var(--shadow-float, 0 10rpx 28rpx rgba(255, 122, 69, 0.12));
 }
 
 /* 数据仪表盘 */
 .dash {
-  background: #fff;
-  border-radius: 24rpx;
+  background: linear-gradient(135deg, #fff, var(--primary-tint, #FFF3EE));
+  border-radius: var(--radius-card, 32rpx);
   padding: 24rpx;
   margin-bottom: 16rpx;
-  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.04);
+  box-shadow: var(--shadow-card, 0 6rpx 20rpx rgba(255, 122, 69, 0.12));
 }
 
 .dash-top {
@@ -294,9 +296,9 @@
 }
 
 .reminder {
-  background: linear-gradient(135deg, #FFB199, #FF8A65);
+  background: var(--primary-grad, linear-gradient(135deg, #FFB199, #FF7A45));
   color: #fff;
-  border-radius: 20rpx;
+  border-radius: var(--radius-sm, 20rpx);
   padding: 20rpx 24rpx;
   margin-bottom: 16rpx;
   display: flex;
@@ -337,7 +339,7 @@
 }
 
 .chip-active {
-  background: var(--primary, #FF7A45);
+  background: var(--primary-grad, linear-gradient(135deg, #FFB199, #FF7A45));
   color: #fff;
 }
 
@@ -359,9 +361,21 @@
   padding: 80rpx 40rpx;
 }
 
+.eh-bubble {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 50%;
+  background: var(--primary-tint, #FFF3EE);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24rpx;
+  box-shadow: var(--shadow-card, 0 6rpx 20rpx rgba(255, 122, 69, 0.12));
+}
+
 .eh-icon {
   font-size: 96rpx;
-  margin-bottom: 24rpx;
+  line-height: 1;
 }
 
 .eh-title {
@@ -390,13 +404,14 @@
 }
 
 .eh-primary {
-  background: var(--primary, #FF7A45);
+  background: var(--primary-grad, linear-gradient(135deg, #FFB199, #FF7A45));
   color: #fff;
   font-weight: 600;
+  box-shadow: var(--shadow-float, 0 10rpx 28rpx rgba(255, 122, 69, 0.12));
 }
 
 .eh-ghost {
-  background: #fff;
+  background: var(--primary-tint, #FFF3EE);
   color: var(--primary, #FF7A45);
 }
 
@@ -407,11 +422,11 @@
   width: 112rpx;
   height: 112rpx;
   border-radius: 50%;
-  background: var(--primary, #FF7A45);
+  background: var(--primary-grad, linear-gradient(135deg, #FFB199, #FF7A45));
   color: #fff;
   font-size: 64rpx;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 8rpx 24rpx rgba(255, 122, 69, 0.4);
+  box-shadow: var(--shadow-float, 0 10rpx 28rpx rgba(255, 122, 69, 0.12));
 }

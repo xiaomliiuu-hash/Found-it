@@ -12,15 +12,16 @@
   display: flex;
   align-items: center;
   background: #fff;
-  border-radius: 20rpx;
+  border-radius: var(--radius-card);
   padding: 20rpx;
   margin-bottom: 16rpx;
+  box-shadow: var(--shadow-card);
 }
 
 .thumb {
   width: 88rpx;
   height: 88rpx;
-  border-radius: 12rpx;
+  border-radius: var(--radius-sm);
   flex-shrink: 0;
 }
 
@@ -28,7 +29,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #F0F0F2;
+  background: var(--primary-tint);
   font-size: 44rpx;
 }
 
@@ -59,7 +60,7 @@
 
 .restore {
   color: var(--primary, #FF7A45);
-  background: #FFF3EE;
+  background: var(--primary-tint);
 }
 
 .del {

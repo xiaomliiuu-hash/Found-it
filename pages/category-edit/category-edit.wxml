@@ -1,4 +1,4 @@
-<view class="page" style="--primary:{{themeColor}}">
+<view class="page" style="{{themeStyle}}">
   <view class="card">
     <view class="form-row">
       <text class="label">名称</text>

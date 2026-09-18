@@ -1,4 +1,4 @@
-<view class="page" wx:if="{{item}}" style="--primary:{{themeColor}}">
+<view class="page" wx:if="{{item}}" style="{{themeStyle}}">
   <swiper class="photos" wx:if="{{item.photos && item.photos.length}}" indicator-dots="{{item.photos.length > 1}}" circular="{{item.photos.length > 1}}">
     <swiper-item wx:for="{{item.photos}}" wx:key="*this">
       <image src="{{item}}" mode="aspectFill" class="photo" data-url="{{item}}" bindtap="preview" />

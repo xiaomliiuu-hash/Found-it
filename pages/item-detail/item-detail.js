@@ -16,7 +16,7 @@ Page({
     purchaseText: '',
     lowStockText: '',
     borrowedText: '',
-    themeColor: '#FF7A45',
+    themeStyle: '',
     rooms: [],
     borrowedActive: false,
     // 移动位置浮层
@@ -30,7 +30,7 @@ Page({
   },
 
   onShow() {
-    this.setData({ themeColor: theme.getThemeColor() })
+    this.setData({ themeStyle: theme.getThemeStyle() })
     this.refresh()
   },
 

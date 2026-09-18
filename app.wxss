@@ -1,7 +1,23 @@
 page {
+  /* 主题（默认暖橙，各页面通过内联 style 注入跟随主题） */
   --primary: #FF7A45;
-  background: #F5F6F8;
-  color: #1A1A1A;
+  --primary-tint: #FFF3EE;
+  --primary-glow: rgba(255, 122, 69, 0.12);
+  --primary-grad: linear-gradient(135deg, #FFB199, #FF7A45);
+
+  /* 中性设计 token */
+  --bg: #FFF8F3;
+  --card: #FFFFFF;
+  --text-1: #1A1A1A;
+  --text-2: #8A8A90;
+  --line: #F2F2F4;
+  --radius-card: 32rpx;
+  --radius-sm: 20rpx;
+  --shadow-card: 0 6rpx 20rpx var(--primary-glow);
+  --shadow-float: 0 10rpx 28rpx var(--primary-glow);
+
+  background: var(--bg);
+  color: var(--text-1);
   font-size: 28rpx;
   line-height: 1.5;
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;

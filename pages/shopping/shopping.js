@@ -4,11 +4,14 @@ const theme = require('../../utils/theme')
 Page({
   data: {
     list: [],
-    themeColor: '#FF7A45'
+    themeStyle: ''
   },
 
   onShow() {
-    this.setData({ themeColor: theme.getThemeColor() })
+    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
+      this.getTabBar().setData({ selected: 2 })
+    }
+    this.setData({ themeStyle: theme.getThemeStyle() })
     this.refresh()
   },
 

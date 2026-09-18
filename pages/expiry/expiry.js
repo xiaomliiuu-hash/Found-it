@@ -1,15 +1,21 @@
 const store = require('../../utils/store')
 const { todayStr, getExpiryStatus, getRemainingDays } = require('../../utils/date')
+const theme = require('../../utils/theme')
 
 Page({
   data: {
     expired: [],
     soon: [],
     expiredCount: 0,
-    soonCount: 0
+    soonCount: 0,
+    themeStyle: ''
   },
 
   onShow() {
+    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
+      this.getTabBar().setData({ selected: 1 })
+    }
+    this.setData({ themeStyle: theme.getThemeStyle() })
     this.refresh()
   },
 

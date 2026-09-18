@@ -1,4 +1,4 @@
-<view class="page" style="--primary:{{themeColor}}">
+<view class="page" style="{{themeStyle}}">
   <view class="head" wx:if="{{list.length}}">待补货 {{list.length}} 件</view>
 
   <view class="card" wx:for="{{list}}" wx:key="id" data-id="{{item.id}}" bindtap="goDetail">

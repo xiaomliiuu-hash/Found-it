@@ -28,10 +28,11 @@
 }
 
 .card {
-  background: #fff;
-  border-radius: 20rpx;
+  background: var(--card, #fff);
+  border-radius: var(--radius-card, 32rpx);
   padding: 8rpx 24rpx;
   margin-bottom: 24rpx;
+  box-shadow: var(--shadow-card, 0 6rpx 20rpx rgba(255, 122, 69, 0.12));
 }
 
 .section-title {
@@ -81,7 +82,7 @@
   margin-right: 24rpx;
   font-size: 22rpx;
   color: var(--primary, #FF7A45);
-  background: #FFF3EE;
+  background: var(--primary-tint, #FFF3EE);
   padding: 4rpx 16rpx;
   border-radius: 999rpx;
 }

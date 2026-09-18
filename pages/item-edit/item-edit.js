@@ -54,12 +54,13 @@ Page({
     openedHint: false,
     templates: TEMPLATES,
     themeColor: '#FF7A45',
+    themeStyle: '',
     // 分类浮层
     showCategoryPicker: false
   },
 
   onLoad(options) {
-    this.setData({ themeColor: theme.getThemeColor() })
+    this.setData({ themeColor: theme.getThemeColor(), themeStyle: theme.getThemeStyle() })
     const categories = store.getCategories()
     const members = store.getMembers()
     const spaces = store.getSpaces()

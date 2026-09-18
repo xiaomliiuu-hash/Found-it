@@ -16,7 +16,7 @@
   align-items: center;
   justify-content: center;
   font-size: 160rpx;
-  background: #F0F0F2;
+  background: var(--primary-tint);
 }
 
 .content {
@@ -53,8 +53,9 @@
 
 .card {
   background: #fff;
-  border-radius: 20rpx;
+  border-radius: var(--radius-card);
   padding: 8rpx 24rpx;
+  box-shadow: var(--shadow-card);
 }
 
 .row {
@@ -113,7 +114,7 @@
   bottom: 0;
   padding: 16rpx 24rpx calc(16rpx + env(safe-area-inset-bottom));
   background: #fff;
-  box-shadow: 0 -2rpx 12rpx rgba(0, 0, 0, 0.04);
+  box-shadow: 0 -6rpx 24rpx rgba(0, 0, 0, 0.06);
 }
 
 .action-grid {
@@ -129,7 +130,14 @@
 }
 
 .action-icon {
+  width: 88rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  text-align: center;
+  border-radius: 50%;
+  background: var(--primary-tint);
   font-size: 44rpx;
+  display: inline-block;
 }
 
 .action-label {
@@ -207,7 +215,7 @@
 }
 
 .sheet-chip-active {
-  background: var(--primary, #FF7A45);
+  background: var(--primary-grad);
   color: #fff;
 }
 
@@ -222,9 +230,10 @@
   margin-top: 32rpx;
   text-align: center;
   padding: 24rpx;
-  background: var(--primary, #FF7A45);
+  background: var(--primary-grad);
   color: #fff;
   border-radius: 999rpx;
   font-size: 32rpx;
   font-weight: 600;
+  box-shadow: var(--shadow-float);
 }

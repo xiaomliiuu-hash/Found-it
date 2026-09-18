@@ -5,11 +5,11 @@ const { removePhoto } = require('../../utils/file')
 Page({
   data: {
     list: [],
-    themeColor: '#FF7A45'
+    themeStyle: ''
   },
 
   onShow() {
-    this.setData({ themeColor: theme.getThemeColor() })
+    this.setData({ themeStyle: theme.getThemeStyle() })
     this.refresh()
   },
 

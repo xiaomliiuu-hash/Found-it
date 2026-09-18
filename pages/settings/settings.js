@@ -21,12 +21,16 @@ Page({
     storageInfo: '',
     notifyEnabled: true,
     themeColor: '#FF7A45',
+    themeStyle: '',
     themes: theme.THEMES,
     alertOptions: ALERT_OPTIONS,
     alertIndex: 2
   },
 
   onShow() {
+    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
+      this.getTabBar().setData({ selected: 3 })
+    }
     this.refresh()
   },
 
@@ -62,6 +66,7 @@ Page({
       storageInfo,
       notifyEnabled: settings.notifyEnabled !== false,
       themeColor: theme.getThemeColor(),
+      themeStyle: theme.getThemeStyle(),
       alertIndex
     })
   },
@@ -228,8 +233,11 @@ Page({
     const s = store.getSettings()
     s.themeColor = color
     store.saveSettings(s)
-    this.setData({ themeColor: color })
+    this.setData({ themeColor: color, themeStyle: theme.getThemeStyle() })
     theme.apply()
+    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
+      this.getTabBar().setData({ themeStyle: theme.getThemeStyle() })
+    }
   },
 
   replayGuide() {

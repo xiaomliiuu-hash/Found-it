@@ -13,10 +13,11 @@
     "navigationBarBackgroundColor": "#FFFFFF",
     "navigationBarTitleText": "小寻物仓",
     "navigationBarTextStyle": "black",
-    "backgroundColor": "#F5F6F8",
+    "backgroundColor": "#FFF8F3",
     "backgroundTextStyle": "light"
   },
   "tabBar": {
+    "custom": true,
     "color": "#9A9AA0",
     "selectedColor": "#FF7A45",
     "backgroundColor": "#FFFFFF",

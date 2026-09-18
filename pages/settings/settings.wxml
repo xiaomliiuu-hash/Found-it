@@ -1,4 +1,4 @@
-<view class="page" style="--primary:{{themeColor}}">
+<view class="page" style="{{themeStyle}}">
   <view class="card stats">
     <view class="stat">
       <text class="num">{{itemCount}}</text>
@@ -59,7 +59,7 @@
   <view class="card">
     <view class="row row-between">
       <text class="row-name">到期提醒（打开 App 时）</text>
-      <switch checked="{{notifyEnabled}}" bindchange="onNotifySwitch" color="#FF7A45" />
+      <switch checked="{{notifyEnabled}}" bindchange="onNotifySwitch" color="{{themeColor}}" />
     </view>
     <picker mode="selector" range="{{alertOptions}}" value="{{alertIndex}}" bindchange="onAlertChange">
       <view class="row row-between">

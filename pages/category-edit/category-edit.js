@@ -14,11 +14,11 @@ Page({
     color: '#FF7A45',
     emojis: EMOJIS,
     colors: COLORS,
-    themeColor: '#FF7A45'
+    themeStyle: ''
   },
 
   onLoad(options) {
-    this.setData({ themeColor: theme.getThemeColor() })
+    this.setData({ themeStyle: theme.getThemeStyle() })
     if (options.id) {
       const c = store.getCategoryById(options.id)
       if (c) {

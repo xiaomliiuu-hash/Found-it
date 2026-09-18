@@ -8,8 +8,9 @@
 
 .card {
   background: #fff;
-  border-radius: 20rpx;
+  border-radius: var(--radius-card);
   padding: 8rpx 24rpx;
+  box-shadow: var(--shadow-card);
 }
 
 .section-title {
@@ -29,7 +30,7 @@
 
 .tpl-chip {
   display: inline-block;
-  background: #FFF3EE;
+  background: var(--primary-tint);
   color: var(--primary, #FF7A45);
   font-size: 26rpx;
   padding: 10rpx 24rpx;
@@ -52,7 +53,7 @@
 .photo-item image {
   width: 100%;
   height: 100%;
-  border-radius: 16rpx;
+  border-radius: var(--radius-sm);
 }
 
 .photo-del {
@@ -72,8 +73,8 @@
 .photo-add {
   width: 200rpx;
   height: 200rpx;
-  border-radius: 16rpx;
-  background: #FAFAFB;
+  border-radius: var(--radius-sm);
+  background: var(--primary-tint);
   border: 2rpx dashed #D8D8DE;
   display: flex;
   flex-direction: column;
@@ -196,7 +197,7 @@
 }
 
 .chip-active {
-  background: var(--primary, #FF7A45);
+  background: var(--primary-grad);
   color: #fff;
 }
 
@@ -220,7 +221,7 @@
 .btn-mini {
   margin-left: 16rpx;
   padding: 12rpx 28rpx;
-  background: var(--primary, #FF7A45);
+  background: var(--primary-grad);
   color: #fff;
   border-radius: 999rpx;
   font-size: 26rpx;
@@ -238,7 +239,7 @@
   display: flex;
   padding: 20rpx 24rpx;
   background: #fff;
-  box-shadow: 0 -2rpx 12rpx rgba(0, 0, 0, 0.04);
+  box-shadow: 0 -6rpx 24rpx rgba(0, 0, 0, 0.06);
 }
 
 .btn-ghost {
@@ -246,7 +247,7 @@
   text-align: center;
   padding: 24rpx;
   color: var(--primary, #FF7A45);
-  background: #FFF3EE;
+  background: var(--primary-tint);
   border-radius: 999rpx;
   margin-right: 20rpx;
   font-size: 30rpx;
@@ -256,11 +257,12 @@
   flex: 2;
   text-align: center;
   padding: 24rpx;
-  background: var(--primary, #FF7A45);
+  background: var(--primary-grad);
   color: #fff;
   border-radius: 999rpx;
   font-size: 32rpx;
   font-weight: 600;
+  box-shadow: var(--shadow-float);
 }
 
 /* 分类筛选 */
@@ -273,7 +275,7 @@
 .cat-funnel {
   font-size: 24rpx;
   color: var(--primary, #FF7A45);
-  background: #FFF3EE;
+  background: var(--primary-tint);
   padding: 6rpx 16rpx;
   border-radius: 999rpx;
 }
@@ -346,7 +348,7 @@
 }
 
 .cat-cell-active {
-  background: #FFF3EE;
+  background: var(--primary-tint);
 }
 
 .cat-cell-icon {

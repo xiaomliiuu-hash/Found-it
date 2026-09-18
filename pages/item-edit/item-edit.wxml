@@ -1,4 +1,4 @@
-<view class="page" style="--primary:{{themeColor}}">
+<view class="page" style="{{themeStyle}}">
   <!-- 常用模板 -->
   <view class="section card" wx:if="{{!isEdit}}">
     <view class="section-title">常用模板 · 点一下快速带入</view>
@@ -111,7 +111,7 @@
   <view class="section card">
     <view class="form-row row-between">
       <text class="label">保质期提醒</text>
-      <switch checked="{{form.expiryEnabled}}" bindchange="onExpirySwitch" color="#FF7A45" />
+      <switch checked="{{form.expiryEnabled}}" bindchange="onExpirySwitch" color="{{themeColor}}" />
     </view>
     <block wx:if="{{form.expiryEnabled}}">
       <picker mode="date" value="{{form.date}}" bindchange="onDate">
@@ -175,7 +175,7 @@
     </view>
     <view class="form-row row-between">
       <text class="label">借出中</text>
-      <switch checked="{{form.borrowedEnabled}}" bindchange="onBorrowedSwitch" color="#FF7A45" />
+      <switch checked="{{form.borrowedEnabled}}" bindchange="onBorrowedSwitch" color="{{themeColor}}" />
     </view>
     <view class="form-row" wx:if="{{form.borrowedEnabled}}">
       <text class="label">借给谁</text>
