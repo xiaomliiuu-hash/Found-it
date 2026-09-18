@@ -221,7 +221,7 @@ Page({
       title: '新增空间',
       editable: true,
       placeholderText: '空间名，如：办公室',
-      confirmColor: '#FF7A45',
+      confirmColor: '#54684F',
       success: (res) => {
         if (res.confirm && res.content && res.content.trim()) {
           const name = res.content.trim()

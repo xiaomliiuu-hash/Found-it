@@ -19,7 +19,7 @@ const DEFAULT_CATEGORIES = [
 ]
 
 const DEFAULT_MEMBERS = [
-  { id: 'm_me', name: '我', color: '#FF7A45' }
+  { id: 'm_me', name: '我', color: '#54684F' }
 ]
 
 // 空间（顶层容器，物品按空间隔离）
@@ -33,10 +33,16 @@ const DEFAULT_ROOMS = ['客厅', '卧室', '厨房', '卫生间', '阳台', '书
 const DEFAULT_SETTINGS = {
   defaultAlertDays: 3,
   notifyEnabled: true,
-  themeColor: '#FF7A45',
+  themeColor: '#54684F',
   onboarded: false,
   currentSpaceId: 'sp_home',
   seedVersion: 4
+}
+
+// 个人资料（「本人」身份，独立于「成员」体系）
+const DEFAULT_PROFILE = {
+  name: '我',
+  avatar: { kind: 'default', id: 'penguin' }
 }
 
 const KEYS = {
@@ -48,7 +54,8 @@ const KEYS = {
   trash: 'fdl_trash',
   searchHistory: 'fdl_search_history',
   settings: 'fdl_settings',
-  voiceDraft: 'fdl_voice_draft'
+  voiceDraft: 'fdl_voice_draft',
+  profile: 'fdl_profile'
 }
 
 const MAX_HISTORY = 10
@@ -110,6 +117,9 @@ function seed() {
   }
 
   saveSettings(Object.assign({}, DEFAULT_SETTINGS, settings, { seedVersion: 4 }))
+
+  // 个人资料首次初始化
+  if (!read(KEYS.profile, null)) write(KEYS.profile, DEFAULT_PROFILE)
 }
 
 // ---------- 物品 ----------
@@ -382,6 +392,19 @@ function saveSettings(settings) {
   write(KEYS.settings, settings)
 }
 
+// ---------- 个人资料 ----------
+function getProfile() {
+  const p = read(KEYS.profile, null)
+  if (!p || typeof p !== 'object') return { name: DEFAULT_PROFILE.name, avatar: DEFAULT_PROFILE.avatar }
+  return {
+    name: typeof p.name === 'string' ? p.name : DEFAULT_PROFILE.name,
+    avatar: (p.avatar && p.avatar.kind) ? p.avatar : DEFAULT_PROFILE.avatar
+  }
+}
+function saveProfile(profile) {
+  write(KEYS.profile, profile)
+}
+
 // ---------- 语音录入草稿（一次性传递，消费即清）----------
 function getVoiceDraft() {
   return read(KEYS.voiceDraft, null)
@@ -439,6 +462,8 @@ module.exports = {
   clearSearchHistory,
   getSettings,
   saveSettings,
+  getProfile,
+  saveProfile,
   getVoiceDraft,
   setVoiceDraft,
   clearVoiceDraft

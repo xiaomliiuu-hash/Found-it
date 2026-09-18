@@ -1,4 +1,13 @@
 <view class="page" style="{{themeStyle}}">
+  <view class="profile-card" bindtap="goEditProfile">
+    <image class="profile-avatar" src="{{avatarSrc}}" mode="aspectFill" />
+    <view class="profile-info">
+      <text class="profile-name">{{profile.name || '我'}}</text>
+      <text class="profile-sub">编辑个人资料</text>
+    </view>
+    <text class="profile-arrow">›</text>
+  </view>
+
   <view class="card stats">
     <view class="stat">
       <text class="num">{{itemCount}}</text>

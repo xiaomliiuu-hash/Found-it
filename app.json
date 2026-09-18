@@ -7,13 +7,14 @@
     "pages/item-detail/item-detail",
     "pages/item-edit/item-edit",
     "pages/category-edit/category-edit",
+    "pages/profile-edit/profile-edit",
     "pages/trash/trash"
   ],
   "window": {
     "navigationBarBackgroundColor": "#FFFFFF",
     "navigationBarTitleText": "找到噜",
     "navigationBarTextStyle": "black",
-    "backgroundColor": "#FFF8F3",
+    "backgroundColor": "#F7F1DE",
     "backgroundTextStyle": "light"
   },
   "plugins": {
@@ -25,7 +26,7 @@
   "tabBar": {
     "custom": true,
     "color": "#9A9AA0",
-    "selectedColor": "#FF7A45",
+    "selectedColor": "#54684F",
     "backgroundColor": "#FFFFFF",
     "borderStyle": "white",
     "list": [

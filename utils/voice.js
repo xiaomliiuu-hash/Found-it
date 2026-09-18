@@ -23,7 +23,7 @@ function ensureRecordAuth() {
             title: '需要麦克风权限',
             content: '语音录入需要用到麦克风，请在设置中开启。',
             confirmText: '去开启',
-            confirmColor: '#FF7A45',
+            confirmColor: '#54684F',
             success: (m) => {
               if (m.confirm) {
                 wx.openSetting({ success: (o) => resolve(!!o.authSetting['scope.record']) })
@@ -42,7 +42,7 @@ function ensureRecordAuth() {
               title: '需要麦克风权限',
               content: '语音录入需要用到麦克风，请在设置中开启。',
               confirmText: '去开启',
-              confirmColor: '#FF7A45',
+              confirmColor: '#54684F',
               success: (m) => {
                 if (m.confirm) {
                   wx.openSetting({ success: (o) => resolve(!!o.authSetting['scope.record']) })

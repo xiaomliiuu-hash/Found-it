@@ -1,12 +1,12 @@
 .card {
   display: flex;
   align-items: center;
-  background: var(--card, #fff);
-  border-radius: 28rpx;
-  padding: 20rpx;
-  margin-bottom: 20rpx;
+  background: transparent;
+  border-radius: 0;
+  padding: 24rpx 4rpx;
+  margin-bottom: 0;
   position: relative;
-  box-shadow: var(--shadow-card, 0 6rpx 20rpx rgba(255, 122, 69, 0.12));
+  border-bottom: 1rpx solid var(--line-divider, rgba(140, 130, 100, 0.18));
 }
 
 .thumb-wrap {
@@ -45,7 +45,7 @@
   min-width: 0;
   font-size: 30rpx;
   font-weight: 600;
-  color: var(--text-1, #1A1A1A);
+  color: var(--text-title, #3C3A33);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -54,14 +54,14 @@
 .qty {
   margin-left: 8rpx;
   font-size: 24rpx;
-  color: var(--text-2, #8A8A90);
+  color: var(--text-sub, #8E8B7E);
   flex-shrink: 0;
 }
 
 .loc {
   margin-top: 8rpx;
   font-size: 24rpx;
-  color: var(--text-2, #8A8A90);
+  color: var(--text-sub, #8E8B7E);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -91,8 +91,8 @@
 }
 
 .tag-usedup {
-  color: #8A8A90;
-  background: #F0F0F2;
+  color: var(--text-sub, #8E8B7E);
+  background: rgba(140, 130, 100, 0.12);
 }
 
 .card.used-up {
@@ -108,7 +108,7 @@
   margin-top: 12rpx;
   height: 10rpx;
   border-radius: 999rpx;
-  background: #F0F0F2;
+  background: rgba(140, 130, 100, 0.12);
   overflow: hidden;
 }
 
@@ -125,7 +125,7 @@
 .badge {
   position: absolute;
   top: 12rpx;
-  right: 12rpx;
+  right: 4rpx;
   font-size: 20rpx;
   color: #fff;
   padding: 4rpx 12rpx;

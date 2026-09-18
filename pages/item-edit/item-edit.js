@@ -53,7 +53,7 @@ Page({
     remainingClass: '',
     openedHint: false,
     templates: TEMPLATES,
-    themeColor: '#FF7A45',
+    themeColor: '#54684F',
     themeStyle: '',
     // 分类浮层
     showCategoryPicker: false

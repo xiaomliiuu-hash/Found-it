@@ -2,6 +2,48 @@
   padding: 24rpx 24rpx 60rpx;
 }
 
+.profile-card {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: var(--radius-card, 32rpx);
+  padding: 28rpx 24rpx;
+  margin-bottom: 24rpx;
+  box-shadow: var(--shadow-card, 0 6rpx 20rpx rgba(255, 122, 69, 0.12));
+}
+
+.profile-avatar {
+  width: 112rpx;
+  height: 112rpx;
+  border-radius: 50%;
+  background: #F5F5F7;
+  flex-shrink: 0;
+}
+
+.profile-info {
+  flex: 1;
+  margin-left: 24rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-name {
+  font-size: 34rpx;
+  font-weight: 600;
+  color: #1A1A1A;
+}
+
+.profile-sub {
+  margin-top: 8rpx;
+  font-size: 24rpx;
+  color: #8A8A90;
+}
+
+.profile-arrow {
+  color: #C8C8CE;
+  font-size: 32rpx;
+}
+
 .stats {
   display: flex;
   margin-bottom: 8rpx;

@@ -68,7 +68,7 @@ Page({
     wx.showModal({
       title: '一键归档',
       content: '将 ' + n + ' 件已过期物品归档，归档后不再首页提醒（可在首页「已归档」查看）。',
-      confirmColor: '#FF7A45',
+      confirmColor: '#54684F',
       success: (res) => {
         if (res.confirm) {
           this.data.expired.forEach((it) => store.archiveItem(it.id, true))

@@ -132,7 +132,7 @@ Page({
       title: '借给谁',
       editable: true,
       placeholderText: '如：同事小李',
-      confirmColor: '#FF7A45',
+      confirmColor: '#54684F',
       success: (res) => {
         if (res.confirm && res.content && res.content.trim()) {
           store.updateItem(this.data.id, { borrowed: { enabled: true, to: res.content.trim() } })

@@ -1,22 +1,36 @@
 page {
-  /* 主题（默认暖橙，各页面通过内联 style 注入跟随主题） */
-  --primary: #FF7A45;
-  --primary-tint: #FFF3EE;
-  --primary-glow: rgba(255, 122, 69, 0.12);
-  --primary-grad: linear-gradient(135deg, #FFB199, #FF7A45);
+  /* 主题（默认橄榄绿，各页面通过内联 style 注入跟随主题） */
+  --primary: #54684F;
+  --primary-tint: #D9E2D6;
+  --primary-glow: rgba(84, 104, 79, 0.12);
+  --primary-grad: linear-gradient(135deg, #A7BBA5, #54684F);
 
   /* 中性设计 token */
-  --bg: #FFF8F3;
-  --card: #FFFFFF;
-  --text-1: #1A1A1A;
-  --text-2: #8A8A90;
-  --line: #F2F2F4;
-  --radius-card: 32rpx;
-  --radius-sm: 20rpx;
-  --shadow-card: 0 6rpx 20rpx var(--primary-glow);
-  --shadow-float: 0 10rpx 28rpx var(--primary-glow);
+  --bg: #F7F1DE;
+  --bg-paper: #F7F1DE;
+  --card: #FBF6E6;
+  --text-1: #3C3A33;
+  --text-2: #8E8B7E;
+  --text-title: #3C3A33;
+  --text-body: #5C5A50;
+  --text-sub: #8E8B7E;
+  --line: rgba(140, 130, 100, 0.18);
+  --line-divider: rgba(140, 130, 100, 0.18);
+  --radius-card: 28rpx;
+  --radius-sm: 16rpx;
+  --radius-pill: 999rpx;
+  --primary-soft: #A7BBA5;
+  --shadow-card: 0 4rpx 16rpx rgba(120, 110, 80, 0.08);
+  --shadow-float: 0 10rpx 28rpx rgba(120, 110, 80, 0.12);
 
-  background: var(--bg);
+  /* 牛皮纸底色 + 轻微噪点纹理 */
+  background-color: var(--bg-paper);
+  background-image:
+    radial-gradient(120% 90% at 50% 0%, rgba(255, 255, 255, 0.40) 0%, rgba(255, 255, 255, 0) 60%),
+    radial-gradient(rgba(120, 110, 80, 0.05) 1rpx, transparent 1rpx),
+    radial-gradient(rgba(120, 110, 80, 0.03) 1rpx, transparent 1rpx);
+  background-size: 100% 100%, 22rpx 22rpx, 36rpx 36rpx;
+  background-position: 0 0, 0 0, 9rpx 13rpx;
   color: var(--text-1);
   font-size: 28rpx;
   line-height: 1.5;

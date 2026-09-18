@@ -3,6 +3,7 @@ const theme = require('../../utils/theme')
 const { genId } = require('../../utils/id')
 const { exportCsvFile, buildCsv } = require('../../utils/csv')
 const { clearDemoItems } = require('../../utils/templates')
+const { getDefaultAvatar } = require('../../utils/avatars')
 
 const MEMBER_COLORS = ['#FF7A45', '#5B8DEF', '#4ECDC4', '#F5A623', '#9B59B6', '#FF6B6B']
 const ALERT_OPTIONS = [1, 2, 3, 5, 7, 14, 30]
@@ -20,11 +21,13 @@ Page({
     demoCount: 0,
     storageInfo: '',
     notifyEnabled: true,
-    themeColor: '#FF7A45',
+    themeColor: '#54684F',
     themeStyle: '',
     themes: theme.THEMES,
     alertOptions: ALERT_OPTIONS,
-    alertIndex: 2
+    alertIndex: 2,
+    profile: { name: '我' },
+    avatarSrc: ''
   },
 
   onShow() {
@@ -54,6 +57,11 @@ Page({
     const alertDays = settings.defaultAlertDays || 3
     const alertIndex = Math.max(0, ALERT_OPTIONS.indexOf(alertDays))
 
+    const profile = store.getProfile()
+    const avatarSrc = (profile.avatar && profile.avatar.kind === 'image')
+      ? profile.avatar.path
+      : getDefaultAvatar(profile.avatar && profile.avatar.id).src
+
     this.setData({
       members,
       categories,
@@ -67,7 +75,9 @@ Page({
       notifyEnabled: settings.notifyEnabled !== false,
       themeColor: theme.getThemeColor(),
       themeStyle: theme.getThemeStyle(),
-      alertIndex
+      alertIndex,
+      profile,
+      avatarSrc
     })
   },
 
@@ -77,7 +87,7 @@ Page({
       title: '新增空间',
       editable: true,
       placeholderText: '空间名，如：办公室',
-      confirmColor: '#FF7A45',
+      confirmColor: '#54684F',
       success: (res) => {
         if (res.confirm && res.content && res.content.trim()) {
           const name = res.content.trim()
@@ -122,7 +132,7 @@ Page({
       title: '添加成员',
       editable: true,
       placeholderText: '成员名字，如：妈妈',
-      confirmColor: '#FF7A45',
+      confirmColor: '#54684F',
       success: (res) => {
         if (res.confirm && res.content && res.content.trim()) {
           const name = res.content.trim()
@@ -167,7 +177,7 @@ Page({
       title: '添加房间',
       editable: true,
       placeholderText: '房间名，如：地下室',
-      confirmColor: '#FF7A45',
+      confirmColor: '#54684F',
       success: (res) => {
         if (res.confirm && res.content && res.content.trim()) {
           store.addRoom(this.data.currentSpaceId, res.content.trim())
@@ -247,6 +257,10 @@ Page({
     wx.switchTab({ url: '/pages/home/home' })
   },
 
+  goEditProfile() {
+    wx.navigateTo({ url: '/pages/profile-edit/profile-edit' })
+  },
+
   // ---- 数据 ----
   exportCsv() {
     wx.showLoading({ title: '生成中' })
@@ -293,7 +307,7 @@ Page({
           wx.showModal({
             title: '导入数据',
             content: '将导入 ' + data.items.length + ' 件物品，覆盖当前数据（照片文件不会导入）。继续？',
-            confirmColor: '#FF7A45',
+            confirmColor: '#54684F',
             success: (r) => {
               if (r.confirm) {
                 store.saveItems(data.items || [])

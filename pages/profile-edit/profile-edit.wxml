@@ -1,0 +1,46 @@
+<view class="page" style="{{themeStyle}}">
+  <!-- 头像预览 -->
+  <view class="avatar-wrap">
+    <view class="avatar-preview">
+      <image wx:if="{{isImage}}" class="avatar-img" src="{{imagePath}}" mode="aspectFill" />
+      <image wx:else class="avatar-img" src="{{defaultSrc}}" mode="aspectFill" />
+    </view>
+    <text class="avatar-hint">选择头像</text>
+  </view>
+
+  <!-- 默认头像 -->
+  <view class="card">
+    <view class="card-title">默认头像</view>
+    <view class="avatar-grid">
+      <view class="avatar-item {{avatar.kind === 'default' && avatar.id === item.id ? 'avatar-active' : ''}}"
+            wx:for="{{avatars}}" wx:key="id" data-id="{{item.id}}" bindtap="onPickDefault">
+        <image class="avatar-opt" src="{{item.src}}" mode="aspectFill" />
+      </view>
+    </view>
+  </view>
+
+  <!-- 相册 / 拍照 -->
+  <view class="card">
+    <view class="row" bindtap="onChooseAlbum">
+      <text class="row-name">从相册选择</text>
+      <text class="arrow">›</text>
+    </view>
+    <view class="row" bindtap="onTakePhoto">
+      <text class="row-name">拍照</text>
+      <text class="arrow">›</text>
+    </view>
+  </view>
+
+  <!-- 昵称 -->
+  <view class="card">
+    <view class="card-title">昵称</view>
+    <view class="name-box">
+      <input class="name-input" value="{{name}}" maxlength="12" placeholder="请输入昵称"
+             placeholder-class="name-ph" bindinput="onNameInput" />
+      <text class="name-count">{{nameLen}}/12</text>
+    </view>
+  </view>
+
+  <!-- 保存 -->
+  <view class="save-btn" bindtap="onSave">保存</view>
+</view>
