@@ -418,7 +418,7 @@
 .fab {
   position: fixed;
   right: 40rpx;
-  bottom: 60rpx;
+  bottom: calc(190rpx + env(safe-area-inset-bottom));
   width: 112rpx;
   height: 112rpx;
   border-radius: 50%;
@@ -429,4 +429,109 @@
   align-items: center;
   justify-content: center;
   box-shadow: var(--shadow-float, 0 10rpx 28rpx rgba(255, 122, 69, 0.12));
+}
+
+/* 麦克风 FAB */
+.fab-voice {
+  position: fixed;
+  right: 40rpx;
+  bottom: calc(330rpx + env(safe-area-inset-bottom));
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--primary, #FF7A45);
+  font-size: 44rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-float, 0 10rpx 28rpx rgba(255, 122, 69, 0.12));
+  z-index: 900;
+}
+
+/* 语音录入浮层 */
+.voice-mask {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60rpx;
+}
+
+.voice-panel {
+  width: 100%;
+  background: #fff;
+  border-radius: 32rpx;
+  padding: 48rpx 40rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.voice-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #1A1A1A;
+}
+
+.voice-text {
+  width: 100%;
+  min-height: 120rpx;
+  margin-top: 24rpx;
+  padding: 20rpx 24rpx;
+  background: #F7F7F9;
+  border-radius: 20rpx;
+  font-size: 28rpx;
+  color: #1A1A1A;
+  line-height: 1.6;
+  box-sizing: border-box;
+}
+
+.voice-text-hint {
+  color: #8A8A90;
+}
+
+.voice-btn {
+  margin-top: 40rpx;
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 50%;
+  background: var(--primary-tint, #FFF3EE);
+  color: var(--primary, #FF7A45);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.voice-btn-recording {
+  background: var(--primary-grad, linear-gradient(135deg, #FFB199, #FF7A45));
+  color: #fff;
+  transform: scale(1.12);
+  box-shadow: 0 0 0 12rpx var(--primary-glow, rgba(255, 122, 69, 0.12));
+}
+
+.voice-btn-icon {
+  font-size: 64rpx;
+  line-height: 1;
+}
+
+.voice-btn-label {
+  margin-top: 12rpx;
+  font-size: 24rpx;
+  font-weight: 600;
+}
+
+.voice-cancel {
+  margin-top: 40rpx;
+  padding: 12rpx 40rpx;
+  font-size: 28rpx;
+  color: #8A8A90;
 }

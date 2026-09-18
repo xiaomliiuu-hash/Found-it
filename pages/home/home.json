@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "小寻物仓",
+  "navigationBarTitleText": "找到噜",
   "usingComponents": {
     "item-card": "/components/item-card/item-card",
     "empty-state": "/components/empty-state/empty-state"

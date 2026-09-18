@@ -47,7 +47,8 @@ const KEYS = {
   spaces: 'fdl_spaces',
   trash: 'fdl_trash',
   searchHistory: 'fdl_search_history',
-  settings: 'fdl_settings'
+  settings: 'fdl_settings',
+  voiceDraft: 'fdl_voice_draft'
 }
 
 const MAX_HISTORY = 10
@@ -381,6 +382,17 @@ function saveSettings(settings) {
   write(KEYS.settings, settings)
 }
 
+// ---------- 语音录入草稿（一次性传递，消费即清）----------
+function getVoiceDraft() {
+  return read(KEYS.voiceDraft, null)
+}
+function setVoiceDraft(draft) {
+  write(KEYS.voiceDraft, draft)
+}
+function clearVoiceDraft() {
+  try { wx.removeStorageSync(KEYS.voiceDraft) } catch (e) {}
+}
+
 module.exports = {
   seed,
   getItems,
@@ -426,5 +438,8 @@ module.exports = {
   addSearchHistory,
   clearSearchHistory,
   getSettings,
-  saveSettings
+  saveSettings,
+  getVoiceDraft,
+  setVoiceDraft,
+  clearVoiceDraft
 }

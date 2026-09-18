@@ -3,7 +3,7 @@
   <view class="mask" wx:if="{{showOnboarding}}" catchtap="onStartOnboarding">
     <view class="guide" catchtap="noop">
       <view class="guide-logo">🔍</view>
-      <view class="guide-title">欢迎使用「小寻物仓」</view>
+      <view class="guide-title">欢迎使用「找到噜」</view>
       <view class="guide-sub">家里东西放哪、什么时候过期，都记在这里</view>
       <view class="guide-steps">
         <view class="guide-step"><text class="gs-icon">📦</text><text class="gs-text">记录每件东西放在哪</text></view>
@@ -131,5 +131,20 @@
     <empty-state wx:else text="没有找到相关物品" icon="🔍" />
   </block>
 
+  <view class="fab-voice" bindtap="openVoice">🎤</view>
   <view class="fab" bindtap="goAdd">+</view>
+
+  <!-- 语音录入浮层 -->
+  <view class="voice-mask" wx:if="{{voiceOpen}}" bindtap="onVoiceCancel" catchtouchmove="noop">
+    <view class="voice-panel" catchtap="noop">
+      <text class="voice-title">按住说话，松手识别</text>
+      <view class="voice-text {{voiceText ? '' : 'voice-text-hint'}}">{{voiceText || '例如：感冒灵在客厅电视柜第二个抽屉，保质期到12月30号'}}</view>
+      <view class="voice-btn {{recording ? 'voice-btn-recording' : ''}}"
+            bindtouchstart="onVoiceStart" bindtouchend="onVoiceEnd" bindtouchcancel="onVoiceEnd">
+        <text class="voice-btn-icon">🎤</text>
+        <text class="voice-btn-label">{{recording ? '松手结束' : '按住说话'}}</text>
+      </view>
+      <view class="voice-cancel" bindtap="onVoiceCancel">取消</view>
+    </view>
+  </view>
 </view>

@@ -81,7 +81,7 @@ function buildCsv() {
 function exportCsvFile() {
   return new Promise((resolve, reject) => {
     const csv = buildCsv()
-    const name = '小寻物仓_备份_' + formatDate(new Date()).replace(/-/g, '') + '.csv'
+    const name = '找到噜_备份_' + formatDate(new Date()).replace(/-/g, '') + '.csv'
     const filePath = wx.env.USER_DATA_PATH + '/' + name
     wx.getFileSystemManager().writeFile({
       filePath,

@@ -258,7 +258,7 @@ Page({
           if (r.tapIndex === 0) {
             wx.shareFileMessage({
               filePath,
-              fileName: '小寻物仓_备份.csv',
+              fileName: '找到噜_备份.csv',
               fail: () => wx.showToast({ title: '分享失败', icon: 'none' })
             })
           } else {

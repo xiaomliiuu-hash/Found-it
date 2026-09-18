@@ -11,10 +11,16 @@
   ],
   "window": {
     "navigationBarBackgroundColor": "#FFFFFF",
-    "navigationBarTitleText": "小寻物仓",
+    "navigationBarTitleText": "找到噜",
     "navigationBarTextStyle": "black",
     "backgroundColor": "#FFF8F3",
     "backgroundTextStyle": "light"
+  },
+  "plugins": {
+    "WechatSI": {
+      "version": "0.3.6",
+      "provider": "wx069ba97219f66d99"
+    }
   },
   "tabBar": {
     "custom": true,

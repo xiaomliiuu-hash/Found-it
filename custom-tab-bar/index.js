@@ -1,4 +1,4 @@
-const theme = require('../../utils/theme')
+const theme = require('../utils/theme')
 
 Component({
   data: {

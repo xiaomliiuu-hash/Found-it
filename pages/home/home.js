@@ -4,6 +4,8 @@ const theme = require('../../utils/theme')
 const { computeStats, formatMoney } = require('../../utils/stats')
 const { seedDemoItems } = require('../../utils/templates')
 const { genId } = require('../../utils/id')
+const voice = require('../../utils/voice')
+const voiceParse = require('../../utils/voiceParse')
 
 const SPACE_ICONS = ['🏠', '🏢', '🚗', '🏡', '🏬', '🎒']
 
@@ -52,7 +54,11 @@ Page({
     soonestDaysText: '',
     notifyEnabled: true,
     themeStyle: '',
-    showOnboarding: false
+    showOnboarding: false,
+    // 语音录入
+    voiceOpen: false,
+    recording: false,
+    voiceText: ''
   },
 
   onShow() {
@@ -274,6 +280,55 @@ Page({
 
   goAdd() {
     wx.navigateTo({ url: '/pages/item-edit/item-edit' })
+  },
+
+  // ---- 语音录入 ----
+  openVoice() {
+    voice.ensureRecordAuth().then((ok) => {
+      if (ok) this.setData({ voiceOpen: true, recording: false, voiceText: '' })
+    })
+  },
+  onVoiceStart() {
+    try {
+      voice.startRecognize({
+        onRecognize: (res) => {
+          if (res && res.result) this.setData({ voiceText: res.result })
+        },
+        onStop: (res) => this.onVoiceResult(res),
+        onError: () => {
+          this.setData({ recording: false })
+          wx.showToast({ title: '识别失败，请重试', icon: 'none' })
+        }
+      })
+      this.setData({ recording: true })
+    } catch (e) {
+      this.setData({ recording: false, voiceOpen: false })
+      wx.showModal({
+        title: '语音插件未添加',
+        content: '请在微信公众平台「设置 → 第三方插件」添加「微信同声传译」后重试。',
+        showCancel: false
+      })
+    }
+  },
+  onVoiceEnd() {
+    if (!this.data.recording) return
+    this.setData({ recording: false })
+    voice.stopRecognize()
+  },
+  onVoiceResult(res) {
+    const text = (res && res.result) ? String(res.result).trim() : ''
+    if (!text) {
+      this.setData({ recording: false })
+      wx.showToast({ title: '没听清，请再说一次', icon: 'none' })
+      return
+    }
+    const draft = voiceParse.parse(text)
+    store.setVoiceDraft(draft)
+    this.setData({ voiceOpen: false, recording: false, voiceText: '' })
+    wx.navigateTo({ url: '/pages/item-edit/item-edit' })
+  },
+  onVoiceCancel() {
+    this.setData({ voiceOpen: false, recording: false, voiceText: '' })
   },
 
   goDetail(e) {

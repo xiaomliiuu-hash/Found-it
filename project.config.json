@@ -1,5 +1,5 @@
 {
-  "description": "小寻物仓 - 物品收纳记忆小程序",
+  "description": "找到噜 - 物品收纳记忆小程序",
   "packOptions": {
     "ignore": [],
     "include": []
@@ -32,7 +32,7 @@
   "compileType": "miniprogram",
   "libVersion": "2.33.0",
   "appid": "wx861df87d70fa50ea",
-  "projectname": "小寻物仓",
+  "projectname": "找到噜",
   "condition": {},
   "editorSetting": {
     "tabIndent": "insertSpaces",

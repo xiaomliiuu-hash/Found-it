@@ -122,6 +122,23 @@ Page({
       'form.memberId': members.length ? members[0].id : '',
       'form.spaceId': currentSpaceId
     })
+
+    // 语音录入草稿预填（一次性，消费即清）
+    const draft = store.getVoiceDraft()
+    if (draft) {
+      store.clearVoiceDraft()
+      const p = {}
+      if (draft.name) p['form.name'] = draft.name
+      if (draft.room) p['form.room'] = draft.room
+      if (draft.place) p['form.place'] = draft.place
+      if (draft.quantity) p['form.quantity'] = draft.quantity
+      if (draft.unit) p['form.unit'] = draft.unit
+      if (draft.note) p['form.note'] = draft.note
+      if (draft.date) { p['form.date'] = draft.date; p['form.expiryEnabled'] = true }
+      if (Object.keys(p).length) this.setData(p)
+      wx.showToast({ title: '已按语音填入，请确认', icon: 'none' })
+    }
+
     this.recalcRemaining()
   },
 
