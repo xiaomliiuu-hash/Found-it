@@ -1,0 +1,31 @@
+<view class="page" style="--primary:{{themeColor}}">
+  <view class="card">
+    <view class="form-row">
+      <text class="label">名称</text>
+      <input class="input" placeholder="分类名" value="{{name}}" bindinput="onName" />
+    </view>
+    <view class="preview">
+      <view class="preview-icon" style="color:{{color}};background:{{color}}20;">{{icon}} {{name || '分类'}}</view>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="section-title">图标</view>
+    <view class="emoji-grid">
+      <view class="emoji {{icon === item ? 'active' : ''}}" wx:for="{{emojis}}" wx:key="*this" data-icon="{{item}}" bindtap="onIcon">{{item}}</view>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="section-title">颜色</view>
+    <view class="color-grid">
+      <view class="color {{color === item ? 'active' : ''}}" wx:for="{{colors}}" wx:key="*this" data-color="{{item}}" bindtap="onColor" style="background:{{item}}"></view>
+    </view>
+  </view>
+
+  <view class="footer-space"></view>
+  <view class="footer-bar">
+    <view class="btn-del" wx:if="{{isEdit}}" bindtap="onDelete">删除</view>
+    <view class="btn-primary" bindtap="save">保存</view>
+  </view>
+</view>

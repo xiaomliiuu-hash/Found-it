@@ -1,0 +1,141 @@
+.card {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 24rpx;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+  position: relative;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.04);
+}
+
+.thumb-wrap {
+  width: 120rpx;
+  height: 120rpx;
+  flex-shrink: 0;
+}
+
+.thumb {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 12rpx;
+  background: #F0F0F2;
+}
+
+.thumb-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 56rpx;
+}
+
+.info {
+  flex: 1;
+  margin-left: 20rpx;
+  min-width: 0;
+}
+
+.name-row {
+  display: flex;
+  align-items: baseline;
+}
+
+.name {
+  flex: 1;
+  min-width: 0;
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #1A1A1A;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.qty {
+  margin-left: 8rpx;
+  font-size: 24rpx;
+  color: #8A8A90;
+  flex-shrink: 0;
+}
+
+.loc {
+  margin-top: 8rpx;
+  font-size: 24rpx;
+  color: #8A8A90;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.meta {
+  margin-top: 10rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tag {
+  font-size: 22rpx;
+  padding: 2rpx 12rpx;
+  border-radius: 999rpx;
+  margin-right: 8rpx;
+}
+
+.tag-borrowed {
+  color: #5B8DEF;
+  background: #EAF1FF;
+}
+
+.tag-lowstock {
+  color: #E88800;
+  background: #FFF4E6;
+}
+
+.tag-usedup {
+  color: #8A8A90;
+  background: #F0F0F2;
+}
+
+.card.used-up {
+  opacity: 0.55;
+}
+
+.card.used-up .thumb {
+  filter: grayscale(1);
+  opacity: 0.7;
+}
+
+.bar {
+  margin-top: 12rpx;
+  height: 8rpx;
+  border-radius: 999rpx;
+  background: #F0F0F2;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  border-radius: 999rpx;
+  transition: width 0.3s ease;
+}
+
+.p-green { background: #3FB68B; }
+.p-orange { background: #FFA940; }
+.p-red { background: #FF4D4F; }
+
+.badge {
+  position: absolute;
+  top: 12rpx;
+  right: 12rpx;
+  font-size: 20rpx;
+  color: #fff;
+  padding: 4rpx 12rpx;
+  border-radius: 999rpx;
+}
+
+.badge.expired {
+  background: #FF4D4F;
+}
+
+.badge.soon {
+  background: #FFA940;
+}

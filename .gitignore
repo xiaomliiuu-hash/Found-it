@@ -1,0 +1,12 @@
+# 微信开发者工具 —— 个人私有配置（本机编译设置，勿提交）
+project.private.config.json
+
+# macOS
+.DS_Store
+
+# 日志
+*.log
+
+# 依赖 / 构建产物（当前未用 npm，预留）
+node_modules/
+miniprogram_npm/

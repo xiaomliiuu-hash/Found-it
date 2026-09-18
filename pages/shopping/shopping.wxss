@@ -1,0 +1,73 @@
+.page {
+  padding: 24rpx;
+}
+
+.head {
+  font-size: 30rpx;
+  font-weight: 600;
+  margin-bottom: 16rpx;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 20rpx;
+  margin-bottom: 16rpx;
+  position: relative;
+}
+
+.check {
+  width: 44rpx;
+  height: 44rpx;
+  border-radius: 50%;
+  border: 2rpx solid #D8D8DE;
+  margin-right: 16rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 26rpx;
+  flex-shrink: 0;
+}
+
+.check.checked {
+  background: var(--primary, #FF7A45);
+  border-color: var(--primary, #FF7A45);
+}
+
+.icon {
+  font-size: 48rpx;
+  margin-right: 16rpx;
+}
+
+.info {
+  flex: 1;
+  min-width: 0;
+}
+
+.name {
+  font-size: 30rpx;
+  font-weight: 600;
+}
+
+.sub {
+  margin-top: 6rpx;
+  font-size: 24rpx;
+  color: #8A8A90;
+}
+
+.badge {
+  font-size: 22rpx;
+  color: #fff;
+  background: #FF4D4F;
+  padding: 4rpx 12rpx;
+  border-radius: 999rpx;
+  flex-shrink: 0;
+  margin-left: 12rpx;
+}
+
+.badge.warn {
+  background: #FFA940;
+}

@@ -1,0 +1,46 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/expiry/expiry",
+    "pages/shopping/shopping",
+    "pages/settings/settings",
+    "pages/item-detail/item-detail",
+    "pages/item-edit/item-edit",
+    "pages/category-edit/category-edit",
+    "pages/trash/trash"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "navigationBarTitleText": "小寻物仓",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#F5F6F8",
+    "backgroundTextStyle": "light"
+  },
+  "tabBar": {
+    "color": "#9A9AA0",
+    "selectedColor": "#FF7A45",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "物品"
+      },
+      {
+        "pagePath": "pages/expiry/expiry",
+        "text": "过期"
+      },
+      {
+        "pagePath": "pages/shopping/shopping",
+        "text": "清单"
+      },
+      {
+        "pagePath": "pages/settings/settings",
+        "text": "我的"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

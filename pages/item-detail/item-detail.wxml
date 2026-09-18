@@ -1,0 +1,105 @@
+<view class="page" wx:if="{{item}}" style="--primary:{{themeColor}}">
+  <swiper class="photos" wx:if="{{item.photos && item.photos.length}}" indicator-dots="{{item.photos.length > 1}}" circular="{{item.photos.length > 1}}">
+    <swiper-item wx:for="{{item.photos}}" wx:key="*this">
+      <image src="{{item}}" mode="aspectFill" class="photo" data-url="{{item}}" bindtap="preview" />
+    </swiper-item>
+  </swiper>
+  <view class="photo-placeholder" wx:else>{{category ? category.icon : '📦'}}</view>
+
+  <view class="content">
+    <view class="name-row">
+      <text class="name">{{item.name}}</text>
+      <text class="archived-hint" wx:if="{{item.archived}}">已归档</text>
+      <view wx:if="{{status !== 'none'}}" class="badge {{status}}">{{expiryText}}</view>
+    </view>
+
+    <view class="card">
+      <view class="row" wx:if="{{quantityText}}">
+        <text class="k">数量</text>
+        <text class="v">{{quantityText}}</text>
+      </view>
+      <view class="row">
+        <text class="k">位置</text>
+        <text class="v">📍 {{item.location && item.location.room ? item.location.room : ''}}{{item.location && item.location.place ? ' · ' + item.location.place : ''}}{{!item.location || (!item.location.room && !item.location.place) ? '未设置' : ''}}</text>
+      </view>
+      <view class="row" wx:if="{{category}}">
+        <text class="k">分类</text>
+        <text class="v">{{category.icon}} {{category.name}}</text>
+      </view>
+      <view class="row" wx:if="{{member}}">
+        <text class="k">归属</text>
+        <text class="v">{{member.name}}</text>
+      </view>
+      <view class="row" wx:if="{{item.tags && item.tags.length}}">
+        <text class="k">标签</text>
+        <view class="v">
+          <text class="tag" wx:for="{{item.tags}}" wx:for-item="t" wx:key="*this">{{t}}</text>
+        </view>
+      </view>
+      <view class="row" wx:if="{{expiryText}}">
+        <text class="k">过期</text>
+        <text class="v">{{expiryText}}<text wx:if="{{expirySourceHint}}" class="hint">（{{expirySourceHint}}）</text></text>
+      </view>
+      <view class="row" wx:if="{{openedText}}">
+        <text class="k">开封</text>
+        <text class="v">{{openedText}}</text>
+      </view>
+      <view class="row" wx:if="{{purchaseText}}">
+        <text class="k">购买</text>
+        <text class="v">{{purchaseText}}</text>
+      </view>
+      <view class="row" wx:if="{{lowStockText}}">
+        <text class="k">库存提醒</text>
+        <text class="v">{{lowStockText}}</text>
+      </view>
+      <view class="row" wx:if="{{borrowedText}}">
+        <text class="k">借出</text>
+        <text class="v borrowed">{{borrowedText}}</text>
+      </view>
+      <view class="row" wx:if="{{item.note}}">
+        <text class="k">备注</text>
+        <text class="v note">{{item.note}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="footer-space"></view>
+  <view class="footer-bar">
+    <view class="action-grid">
+      <view class="action" bindtap="onMove">
+        <text class="action-icon">📍</text>
+        <text class="action-label">移动位置</text>
+      </view>
+      <view class="action" bindtap="onBorrow">
+        <text class="action-icon">{{borrowedActive ? '↩️' : '🤝'}}</text>
+        <text class="action-label">{{borrowedActive ? '归还' : '借出'}}</text>
+      </view>
+      <view class="action" bindtap="onUseUp">
+        <text class="action-icon">✅</text>
+        <text class="action-label">用完</text>
+      </view>
+      <view class="action" bindtap="onDiscard">
+        <text class="action-icon">🗑️</text>
+        <text class="action-label">丢弃</text>
+      </view>
+    </view>
+    <view class="footer-links">
+      <text class="link" bindtap="goEdit">编辑</text>
+      <text class="link" bindtap="onArchive">{{item.archived ? '取消归档' : '归档'}}</text>
+    </view>
+  </view>
+
+  <!-- 移动位置浮层 -->
+  <view class="mask" wx:if="{{showMove}}" catchtap="onMoveClose">
+    <view class="sheet" catchtap="noop">
+      <view class="sheet-title">移动位置</view>
+      <view class="sheet-label">选择房间</view>
+      <view class="sheet-chips">
+        <view class="sheet-chip {{moveRoom === item ? 'sheet-chip-active' : ''}}" wx:for="{{rooms}}" wx:key="*this" data-room="{{item}}" bindtap="onPickRoom">{{item}}</view>
+      </view>
+      <view class="sheet-label">具体位置</view>
+      <input class="sheet-input" placeholder="如：电视柜第二个抽屉" value="{{movePlace}}" bindinput="onMovePlace" />
+      <view class="sheet-btn" bindtap="onMoveConfirm">确定</view>
+    </view>
+  </view>
+</view>

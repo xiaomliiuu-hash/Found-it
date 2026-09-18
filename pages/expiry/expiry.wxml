@@ -1,0 +1,16 @@
+<view class="page">
+  <view class="section" wx:if="{{expired.length}}">
+    <view class="section-head">
+      <view class="section-title">已过期（{{expiredCount}}）</view>
+      <view class="archive-btn" bindtap="onArchiveAll">一键归档</view>
+    </view>
+    <item-card wx:for="{{expired}}" wx:key="id" item="{{item}}" category="{{item._category}}" member="{{item._member}}" bind:tap="goDetail" />
+  </view>
+
+  <view class="section" wx:if="{{soon.length}}">
+    <view class="section-title">即将过期（{{soonCount}}）</view>
+    <item-card wx:for="{{soon}}" wx:key="id" item="{{item}}" category="{{item._category}}" member="{{item._member}}" bind:tap="goDetail" />
+  </view>
+
+  <empty-state wx:if="{{!expired.length && !soon.length}}" text="太棒了，没有需要处理的过期物品" icon="🎉" />
+</view>

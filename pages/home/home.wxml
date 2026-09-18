@@ -1,0 +1,135 @@
+<view class="page" style="--primary:{{themeColor}}">
+  <!-- 新手引导遮罩 -->
+  <view class="mask" wx:if="{{showOnboarding}}" catchtap="onStartOnboarding">
+    <view class="guide" catchtap="noop">
+      <view class="guide-logo">🔍</view>
+      <view class="guide-title">欢迎使用「小寻物仓」</view>
+      <view class="guide-sub">家里东西放哪、什么时候过期，都记在这里</view>
+      <view class="guide-steps">
+        <view class="guide-step"><text class="gs-icon">📦</text><text class="gs-text">记录每件东西放在哪</text></view>
+        <view class="guide-step"><text class="gs-icon">⏰</text><text class="gs-text">到期自动提醒，不再浪费</text></view>
+        <view class="guide-step"><text class="gs-icon">🛒</text><text class="gs-text">低库存自动生成购物清单</text></view>
+      </view>
+      <view class="guide-btn" catchtap="onStartOnboarding">开始记录 →</view>
+    </view>
+  </view>
+
+  <!-- 空间切换 -->
+  <scroll-view class="space-scroll" scroll-x enhanced show-scrollbar="{{false}}">
+    <view class="space-row">
+      <view class="space-chip {{currentSpaceId === item.id ? 'space-active' : ''}}" wx:for="{{spaces}}" wx:key="id" data-id="{{item.id}}" bindtap="onSpaceTap">{{item.icon}} {{item.name}}</view>
+      <view class="space-chip space-add" bindtap="onAddSpace">＋ 新空间</view>
+    </view>
+  </scroll-view>
+
+  <!-- 搜索 -->
+  <view class="search-bar">
+    <input class="search-input" placeholder="搜索名称/位置/标签/分类" value="{{searchKey}}" bindinput="onSearchInput" bindfocus="onSearchFocus" bindblur="onSearchBlur" confirm-type="search" bindconfirm="onSearchConfirm" />
+  </view>
+
+  <!-- 搜索历史 -->
+  <view class="history" wx:if="{{searchFocus && !searchKey && searchHistory.length}}">
+    <view class="history-head">
+      <text class="history-title">最近搜索</text>
+      <text class="history-clear" bindtap="clearHistory">清除</text>
+    </view>
+    <view class="history-chips">
+      <view class="history-chip" wx:for="{{searchHistory}}" wx:key="*this" data-term="{{item}}" bindtap="onHistoryTap">{{item}}</view>
+    </view>
+  </view>
+
+  <!-- 数据仪表盘 -->
+  <view class="dash">
+    <view class="dash-top">
+      <text class="dash-sub">{{currentSpaceName}} · 共 {{totalCount}} 件</text>
+      <text class="dash-value" wx:if="{{valueText}}">已记录价值 {{valueText}}</text>
+    </view>
+    <view class="dash-stats">
+      <view class="dstat">
+        <text class="dstat-num">{{totalCount}}</text>
+        <text class="dstat-label">总物品</text>
+      </view>
+      <view class="dstat" bindtap="goExpiry">
+        <text class="dstat-num d-warn">{{soonCount}}</text>
+        <text class="dstat-label">临期</text>
+      </view>
+      <view class="dstat" bindtap="goExpiry">
+        <text class="dstat-num d-danger">{{expiredCount}}</text>
+        <text class="dstat-label">已过期</text>
+      </view>
+    </view>
+    <view class="dash-bars" wx:if="{{categoryDist.length}}">
+      <view class="dbar" wx:for="{{categoryDist}}" wx:key="id" data-id="{{item.id}}" bindtap="onCategoryBar">
+        <text class="dbar-icon">{{item.icon}}</text>
+        <text class="dbar-name">{{item.name}}</text>
+        <view class="dbar-track">
+          <view class="dbar-fill" style="width:{{item.percent}}%;background:{{item.color}}"></view>
+        </view>
+        <text class="dbar-pct">{{item.percent}}%</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 视图切换 -->
+  <view class="seg">
+    <view class="seg-item {{viewMode === 'list' ? 'seg-active' : ''}}" data-mode="list" bindtap="onViewMode">列表</view>
+    <view class="seg-item {{viewMode === 'room' ? 'seg-active' : ''}}" data-mode="room" bindtap="onViewMode">按房间</view>
+  </view>
+
+  <!-- 到期提醒 -->
+  <view class="reminder" wx:if="{{notifyEnabled && soonestName}}" bindtap="goExpiry">
+    <view class="rem-line">⏰ 「{{soonestName}}」{{soonestDaysText}}</view>
+    <text class="arrow">›</text>
+  </view>
+
+  <scroll-view class="filter-scroll" scroll-x enhanced show-scrollbar="{{false}}">
+    <view class="filter-row">
+      <view class="chip {{!filterQuick ? 'chip-active' : ''}}" data-value="" bindtap="onFilterQuick">全部</view>
+      <view class="chip {{filterQuick === 'soon' ? 'chip-active' : ''}}" data-value="soon" bindtap="onFilterQuick">快过期</view>
+      <view class="chip {{filterQuick === 'lowstock' ? 'chip-active' : ''}}" data-value="lowstock" bindtap="onFilterQuick">低库存</view>
+      <view class="chip {{filterQuick === 'borrowed' ? 'chip-active' : ''}}" data-value="borrowed" bindtap="onFilterQuick">借出中</view>
+      <view class="chip {{filterQuick === 'archived' ? 'chip-active' : ''}}" data-value="archived" bindtap="onFilterQuick">已归档</view>
+    </view>
+  </scroll-view>
+
+  <scroll-view class="filter-scroll" scroll-x enhanced show-scrollbar="{{false}}">
+    <view class="filter-row">
+      <view class="chip {{!filterCategoryId ? 'chip-active' : ''}}" data-id="" bindtap="onFilterCategory">全部分类</view>
+      <view class="chip {{filterCategoryId === item.id ? 'chip-active' : ''}}" wx:for="{{categories}}" wx:key="id" data-id="{{item.id}}" bindtap="onFilterCategory">{{item.icon}} {{item.name}}</view>
+    </view>
+  </scroll-view>
+
+  <scroll-view class="filter-scroll" scroll-x enhanced show-scrollbar="{{false}}" wx:if="{{members.length > 1}}">
+    <view class="filter-row">
+      <view class="chip {{!filterMemberId ? 'chip-active' : ''}}" data-id="" bindtap="onFilterMember">全部成员</view>
+      <view class="chip {{filterMemberId === item.id ? 'chip-active' : ''}}" wx:for="{{members}}" wx:key="id" data-id="{{item.id}}" bindtap="onFilterMember">{{item.name}}</view>
+    </view>
+  </scroll-view>
+
+  <!-- 列表 / 按房间 -->
+  <block wx:if="{{viewMode === 'list'}}">
+    <view class="list" wx:if="{{viewItems.length}}">
+      <item-card wx:for="{{viewItems}}" wx:key="id" item="{{item}}" category="{{item._category}}" member="{{item._member}}" bind:tap="goDetail" />
+    </view>
+  </block>
+  <block wx:else>
+    <view class="room-group" wx:for="{{roomGroups}}" wx:key="room">
+      <view class="room-head">📍 {{item.room}} · {{item.items.length}} 件</view>
+      <item-card wx:for="{{item.items}}" wx:for-item="ri" wx:key="id" item="{{ri}}" category="{{ri._category}}" member="{{ri._member}}" bind:tap="goDetail" />
+    </view>
+  </block>
+
+  <!-- 空状态 -->
+  <block wx:if="{{!viewItems.length}}">
+    <view class="empty-hero" wx:if="{{!items.length}}">
+      <text class="eh-icon">🏠</text>
+      <text class="eh-title">开始整理「{{currentSpaceName}}」</text>
+      <text class="eh-sub">记下每件东西的位置和保质期，再也不怕找不到、不怕过期浪费</text>
+      <view class="eh-btn eh-primary" bindtap="goAdd">＋ 添加第一件物品</view>
+      <view class="eh-btn eh-ghost" bindtap="onSeedDemo">🎁 一键体验示例数据</view>
+    </view>
+    <empty-state wx:else text="没有找到相关物品" icon="🔍" />
+  </block>
+
+  <view class="fab" bindtap="goAdd">+</view>
+</view>

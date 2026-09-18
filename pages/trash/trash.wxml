@@ -1,0 +1,17 @@
+<view class="page" style="--primary:{{themeColor}}">
+  <view class="head" wx:if="{{list.length}}">回收站 · {{list.length}} 件</view>
+
+  <view class="card" wx:for="{{list}}" wx:key="id">
+    <image wx:if="{{item.photo}}" class="thumb" src="{{item.photo}}" mode="aspectFill" />
+    <view wx:else class="thumb thumb-empty">{{item.categoryIcon}}</view>
+    <view class="info">
+      <view class="name">{{item.name}}</view>
+      <view class="sub">{{item.room ? '📍 ' + item.room + ' · ' : ''}}删除于 {{item.deletedAtText}}</view>
+    </view>
+    <view class="act restore" data-id="{{item.id}}" catchtap="onRestore">恢复</view>
+    <view class="act del" data-id="{{item.id}}" catchtap="onDeleteForever">彻底删除</view>
+  </view>
+
+  <view class="empty-btn" wx:if="{{list.length}}" bindtap="onEmpty">清空回收站</view>
+  <empty-state wx:if="{{!list.length}}" text="回收站为空" icon="🗑️" />
+</view>

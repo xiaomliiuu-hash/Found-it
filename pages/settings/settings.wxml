@@ -1,0 +1,117 @@
+<view class="page" style="--primary:{{themeColor}}">
+  <view class="card stats">
+    <view class="stat">
+      <text class="num">{{itemCount}}</text>
+      <text class="label">件物品</text>
+    </view>
+    <view class="stat">
+      <text class="num">{{members.length}}</text>
+      <text class="label">位成员</text>
+    </view>
+    <view class="stat">
+      <text class="num">{{categories.length}}</text>
+      <text class="label">个分类</text>
+    </view>
+  </view>
+
+  <view class="section-title">空间</view>
+  <view class="card">
+    <view class="row" wx:for="{{spaces}}" wx:key="id" data-id="{{item.id}}" bindtap="switchSpace">
+      <text class="row-icon">{{item.icon}}</text>
+      <text class="row-name">{{item.name}}</text>
+      <text class="space-current" wx:if="{{currentSpaceId === item.id}}">当前</text>
+      <text class="del" wx:if="{{spaces.length > 1}}" data-id="{{item.id}}" catchtap="deleteSpace">删除</text>
+    </view>
+    <view class="row add" bindtap="addSpace">＋ 添加空间</view>
+  </view>
+
+  <view class="section-title">成员</view>
+  <view class="card">
+    <view class="row" wx:for="{{members}}" wx:key="id">
+      <view class="dot" style="background:{{item.color}}"></view>
+      <text class="row-name">{{item.name}}</text>
+      <text class="del" data-id="{{item.id}}" catchtap="removeMember">删除</text>
+    </view>
+    <view class="row add" bindtap="addMember">＋ 添加成员</view>
+  </view>
+
+  <view class="section-title">分类</view>
+  <view class="card">
+    <view class="row" wx:for="{{categories}}" wx:key="id" data-id="{{item.id}}" bindtap="editCategory">
+      <text class="row-icon">{{item.icon}}</text>
+      <text class="row-name">{{item.name}}</text>
+      <text class="arrow">›</text>
+    </view>
+    <view class="row add" bindtap="addCategory">＋ 添加分类</view>
+  </view>
+
+  <view class="section-title">位置管理</view>
+  <view class="card">
+    <view class="room-wrap">
+      <view class="room-chip" wx:for="{{rooms}}" wx:key="*this">
+        {{item}}<text class="room-del" data-room="{{item}}" catchtap="removeRoom">×</text>
+      </view>
+    </view>
+    <view class="row add" bindtap="addRoom">＋ 添加房间</view>
+  </view>
+
+  <view class="section-title">消息通知</view>
+  <view class="card">
+    <view class="row row-between">
+      <text class="row-name">到期提醒（打开 App 时）</text>
+      <switch checked="{{notifyEnabled}}" bindchange="onNotifySwitch" color="#FF7A45" />
+    </view>
+    <picker mode="selector" range="{{alertOptions}}" value="{{alertIndex}}" bindchange="onAlertChange">
+      <view class="row row-between">
+        <text class="row-name">默认提前提醒</text>
+        <text class="hint">提前 {{alertOptions[alertIndex]}} 天 ›</text>
+      </view>
+    </picker>
+  </view>
+
+  <view class="section-title">主题</view>
+  <view class="card">
+    <view class="theme-row">
+      <view class="theme-item {{themeColor === item.color ? 'active' : ''}}" wx:for="{{themes}}" wx:key="color" data-color="{{item.color}}" bindtap="onTheme">
+        <view class="theme-swatch" style="background:{{item.color}}"></view>
+        <text class="theme-name">{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="section-title">数据</view>
+  <view class="card">
+    <view class="row" bindtap="exportCsv">
+      <text class="row-name">导出 Excel（CSV）</text>
+      <text class="arrow">›</text>
+    </view>
+    <view class="row" bindtap="exportJson">
+      <text class="row-name">导出备份（JSON）</text>
+      <text class="arrow">›</text>
+    </view>
+    <view class="row" bindtap="importJson">
+      <text class="row-name">导入备份（从剪贴板）</text>
+      <text class="arrow">›</text>
+    </view>
+    <view class="row" bindtap="goTrash">
+      <text class="row-name">回收站</text>
+      <text class="hint">{{trashCount ? trashCount + ' 件' : ''}}</text>
+      <text class="arrow">›</text>
+    </view>
+    <view class="row" wx:if="{{demoCount}}" bindtap="clearDemo">
+      <text class="row-name">清空示例数据</text>
+      <text class="hint">{{demoCount}} 件</text>
+      <text class="arrow">›</text>
+    </view>
+    <view class="row" bindtap="replayGuide">
+      <text class="row-name">重新查看新手引导</text>
+      <text class="arrow">›</text>
+    </view>
+    <view class="row">
+      <text class="row-name">存储占用</text>
+      <text class="hint">{{storageInfo}}</text>
+    </view>
+  </view>
+
+  <view class="about">小寻物仓 v4.0 · 记住每件东西在哪</view>
+</view>

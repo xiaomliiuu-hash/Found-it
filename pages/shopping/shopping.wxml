@@ -1,0 +1,16 @@
+<view class="page" style="--primary:{{themeColor}}">
+  <view class="head" wx:if="{{list.length}}">待补货 {{list.length}} 件</view>
+
+  <view class="card" wx:for="{{list}}" wx:key="id" data-id="{{item.id}}" bindtap="goDetail">
+    <view class="check {{item.checked ? 'checked' : ''}}" data-id="{{item.id}}" catchtap="toggleCheck">{{item.checked ? '✓' : ''}}</view>
+    <view class="icon">{{item._category ? item._category.icon : '📦'}}</view>
+    <view class="info">
+      <view class="name">{{item.name}}</view>
+      <view class="sub">当前 {{item.quantity}}{{item.unit}} · 阈值 {{item.lowStockThreshold}}{{item.unit}}</view>
+    </view>
+    <view class="badge" wx:if="{{item.quantity === 0}}">缺货</view>
+    <view class="badge warn" wx:elif="{{item.quantity > 0}}">补 {{item.lowStockThreshold - item.quantity}}{{item.unit}}</view>
+  </view>
+
+  <empty-state wx:if="{{!list.length}}" text="没有需要补货的物品" icon="🛒" />
+</view>

@@ -1,0 +1,78 @@
+.page {
+  padding: 24rpx;
+}
+
+.head {
+  font-size: 30rpx;
+  font-weight: 600;
+  margin-bottom: 16rpx;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 20rpx;
+  margin-bottom: 16rpx;
+}
+
+.thumb {
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 12rpx;
+  flex-shrink: 0;
+}
+
+.thumb-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #F0F0F2;
+  font-size: 44rpx;
+}
+
+.info {
+  flex: 1;
+  min-width: 0;
+  margin-left: 20rpx;
+}
+
+.name {
+  font-size: 30rpx;
+  font-weight: 600;
+}
+
+.sub {
+  margin-top: 6rpx;
+  font-size: 22rpx;
+  color: #8A8A90;
+}
+
+.act {
+  flex-shrink: 0;
+  font-size: 26rpx;
+  padding: 10rpx 24rpx;
+  border-radius: 999rpx;
+  margin-left: 12rpx;
+}
+
+.restore {
+  color: var(--primary, #FF7A45);
+  background: #FFF3EE;
+}
+
+.del {
+  color: #FF4D4F;
+  background: #FFF1F0;
+}
+
+.empty-btn {
+  margin-top: 8rpx;
+  text-align: center;
+  padding: 24rpx;
+  color: #FF4D4F;
+  background: #fff;
+  border-radius: 20rpx;
+  font-size: 28rpx;
+}

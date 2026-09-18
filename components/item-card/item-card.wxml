@@ -1,0 +1,24 @@
+<view class="card {{usedUp ? 'used-up' : ''}}" bindtap="onTap">
+  <view class="thumb-wrap">
+    <image wx:if="{{item.photos && item.photos.length}}" class="thumb" src="{{item.photos[0]}}" mode="aspectFill" />
+    <view wx:else class="thumb thumb-empty">{{category ? category.icon : '📦'}}</view>
+  </view>
+  <view class="info">
+    <view class="name-row">
+      <text class="name">{{item.name}}</text>
+      <text class="qty" wx:if="{{qtyText}}">{{qtyText}}</text>
+    </view>
+    <view class="loc" wx:if="{{item.location && (item.location.room || item.location.place)}}">📍 {{item.location.room}}{{item.location.place ? ' · ' + item.location.place : ''}}</view>
+    <view class="meta">
+      <text class="tag" wx:if="{{category}}" style="color:{{category.color}};background:{{category.color}}1A;">{{category.icon}} {{category.name}}</text>
+      <text class="tag tag-member" wx:if="{{member}}" style="color:{{member.color}};background:{{member.color}}1A;">{{member.name}}</text>
+      <text class="tag tag-borrowed" wx:if="{{borrowed}}">借出中</text>
+      <text class="tag tag-usedup" wx:if="{{usedUp}}">用完</text>
+      <text class="tag tag-lowstock" wx:if="{{lowStock}}">低库存</text>
+    </view>
+    <view class="bar" wx:if="{{hasProgress}}">
+      <view class="bar-fill {{progressClass}}" style="width:{{progressPct}}%"></view>
+    </view>
+  </view>
+  <view wx:if="{{status !== 'none'}}" class="badge {{status}}">{{statusText}}</view>
+</view>

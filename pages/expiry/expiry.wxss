@@ -1,0 +1,33 @@
+.page {
+  padding: 24rpx;
+}
+
+.section {
+  margin-bottom: 24rpx;
+}
+
+.section-title {
+  font-size: 30rpx;
+  font-weight: 600;
+  margin-bottom: 16rpx;
+  color: #1A1A1A;
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+
+.section-head .section-title {
+  margin-bottom: 0;
+}
+
+.archive-btn {
+  font-size: 24rpx;
+  color: var(--primary, #FF7A45);
+  background: #FFF3EE;
+  padding: 8rpx 20rpx;
+  border-radius: 999rpx;
+}

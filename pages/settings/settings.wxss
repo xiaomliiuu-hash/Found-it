@@ -1,0 +1,159 @@
+.page {
+  padding: 24rpx 24rpx 60rpx;
+}
+
+.stats {
+  display: flex;
+  margin-bottom: 8rpx;
+}
+
+.stat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24rpx 0;
+}
+
+.num {
+  font-size: 40rpx;
+  font-weight: 700;
+  color: var(--primary, #FF7A45);
+}
+
+.label {
+  font-size: 24rpx;
+  color: #8A8A90;
+  margin-top: 6rpx;
+}
+
+.card {
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 8rpx 24rpx;
+  margin-bottom: 24rpx;
+}
+
+.section-title {
+  font-size: 30rpx;
+  font-weight: 600;
+  margin: 8rpx 4rpx 16rpx;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  padding: 26rpx 0;
+  border-bottom: 1rpx solid #F2F2F4;
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.row-between {
+  justify-content: space-between;
+}
+
+.dot {
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 50%;
+  margin-right: 16rpx;
+}
+
+.row-icon {
+  margin-right: 16rpx;
+  font-size: 32rpx;
+}
+
+.row-name {
+  flex: 1;
+  font-size: 28rpx;
+}
+
+.del {
+  color: #FF4D4F;
+  font-size: 26rpx;
+}
+
+.space-current {
+  margin-right: 24rpx;
+  font-size: 22rpx;
+  color: var(--primary, #FF7A45);
+  background: #FFF3EE;
+  padding: 4rpx 16rpx;
+  border-radius: 999rpx;
+}
+
+.add {
+  color: var(--primary, #FF7A45);
+}
+
+.arrow {
+  color: #C8C8CE;
+  font-size: 32rpx;
+}
+
+.hint {
+  color: #8A8A90;
+  font-size: 24rpx;
+}
+
+.room-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20rpx 0 8rpx;
+}
+
+.room-chip {
+  background: #F5F5F7;
+  color: #444;
+  font-size: 26rpx;
+  padding: 10rpx 24rpx;
+  border-radius: 999rpx;
+  margin: 0 14rpx 14rpx 0;
+  display: flex;
+  align-items: center;
+}
+
+.room-del {
+  margin-left: 10rpx;
+  color: #B0B0B6;
+  font-size: 28rpx;
+}
+
+.theme-row {
+  display: flex;
+  padding: 20rpx 0 8rpx;
+}
+
+.theme-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 40rpx;
+}
+
+.theme-swatch {
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 50%;
+}
+
+.theme-item.active .theme-swatch {
+  box-shadow: 0 0 0 3rpx #fff, 0 0 0 6rpx var(--primary, #FF7A45);
+}
+
+.theme-name {
+  margin-top: 10rpx;
+  font-size: 22rpx;
+  color: #8A8A90;
+}
+
+.about {
+  text-align: center;
+  color: #C0C0C6;
+  font-size: 24rpx;
+  margin-top: 40rpx;
+}
