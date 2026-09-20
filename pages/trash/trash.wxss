@@ -11,7 +11,7 @@
 .card {
   display: flex;
   align-items: center;
-  background: #fff;
+  background: var(--card, #FBF6E6);
   border-radius: var(--radius-card);
   padding: 20rpx;
   margin-bottom: 16rpx;
@@ -47,7 +47,7 @@
 .sub {
   margin-top: 6rpx;
   font-size: 22rpx;
-  color: #8A8A90;
+  color: var(--text-sub, #8E8B7E);
 }
 
 .act {
@@ -59,21 +59,21 @@
 }
 
 .restore {
-  color: var(--primary, #FF7A45);
+  color: var(--primary, #54684F);
   background: var(--primary-tint);
 }
 
 .del {
-  color: #FF4D4F;
-  background: #FFF1F0;
+  color: var(--sem-danger, #CF8B86);
+  background: var(--sem-danger-bg, #F6E9E7);
 }
 
 .empty-btn {
   margin-top: 8rpx;
   text-align: center;
   padding: 24rpx;
-  color: #FF4D4F;
-  background: #fff;
+  color: var(--sem-danger, #CF8B86);
+  background: var(--card, #FBF6E6);
   border-radius: 20rpx;
   font-size: 28rpx;
 }

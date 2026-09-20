@@ -10,7 +10,7 @@
   font-size: 30rpx;
   font-weight: 600;
   margin-bottom: 16rpx;
-  color: #1A1A1A;
+  color: var(--text-title, #3C3A33);
   display: flex;
   align-items: center;
 }
@@ -20,7 +20,7 @@
   width: 12rpx;
   height: 12rpx;
   border-radius: 50%;
-  background: var(--primary, #FF7A45);
+  background: var(--primary, #54684F);
   margin-right: 10rpx;
   flex-shrink: 0;
 }
@@ -38,8 +38,8 @@
 
 .archive-btn {
   font-size: 24rpx;
-  color: var(--primary, #FF7A45);
-  background: var(--primary-tint, #FFF3EE);
+  color: var(--primary, #54684F);
+  background: var(--primary-tint, #D9E2D6);
   padding: 8rpx 20rpx;
   border-radius: 999rpx;
 }

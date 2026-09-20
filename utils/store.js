@@ -2,20 +2,20 @@
 // 注意：storage 上限 10MB / 单 key 1MB，结构化文本远够用
 
 const DEFAULT_CATEGORIES = [
-  { id: 'c_food', name: '食品', icon: '🍎', color: '#FF6B6B' },
-  { id: 'c_med', name: '药品', icon: '💊', color: '#4ECDC4' },
-  { id: 'c_beauty', name: '美妆', icon: '💄', color: '#E91E8C' },
-  { id: 'c_cloth', name: '衣物', icon: '👕', color: '#5B8DEF' },
-  { id: 'c_tool', name: '工具', icon: '🔧', color: '#F5A623' },
-  { id: 'c_electronic', name: '电子', icon: '📱', color: '#9B59B6' },
-  { id: 'c_clean', name: '清洁', icon: '🧹', color: '#00B4D8' },
-  { id: 'c_baby', name: '母婴', icon: '🍼', color: '#FF8FAB' },
-  { id: 'c_pet', name: '宠物', icon: '🐾', color: '#A67C52' },
-  { id: 'c_appliance', name: '家电', icon: '🔌', color: '#6C757D' },
-  { id: 'c_sport', name: '运动', icon: '⚽', color: '#2D9C4E' },
-  { id: 'c_book', name: '图书', icon: '📚', color: '#8D6E63' },
-  { id: 'c_doc', name: '文件', icon: '📄', color: '#7F8C8D' },
-  { id: 'c_other', name: '其他', icon: '📦', color: '#BDC3C7' }
+  { id: 'c_food', name: '食品', icon: '🍎', color: '#C98B8B' },
+  { id: 'c_med', name: '药品', icon: '💊', color: '#8FB2AE' },
+  { id: 'c_beauty', name: '美妆', icon: '💄', color: '#C995A8' },
+  { id: 'c_cloth', name: '衣物', icon: '👕', color: '#8BA0C4' },
+  { id: 'c_tool', name: '工具', icon: '🔧', color: '#C9A35E' },
+  { id: 'c_electronic', name: '电子', icon: '📱', color: '#A98FB8' },
+  { id: 'c_clean', name: '清洁', icon: '🧹', color: '#82A9B5' },
+  { id: 'c_baby', name: '母婴', icon: '🍼', color: '#C9977B' },
+  { id: 'c_pet', name: '宠物', icon: '🐾', color: '#A98F76' },
+  { id: 'c_appliance', name: '家电', icon: '🔌', color: '#C4B57E' },
+  { id: 'c_sport', name: '运动', icon: '⚽', color: '#93B58E' },
+  { id: 'c_book', name: '图书', icon: '📚', color: '#A3B88C' },
+  { id: 'c_doc', name: '文件', icon: '📄', color: '#AFAFA6' },
+  { id: 'c_other', name: '其他', icon: '📦', color: '#9B9B96' }
 ]
 
 const DEFAULT_MEMBERS = [

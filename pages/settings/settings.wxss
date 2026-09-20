@@ -5,18 +5,18 @@
 .profile-card {
   display: flex;
   align-items: center;
-  background: #fff;
-  border-radius: var(--radius-card, 32rpx);
+  background: var(--card, #FBF6E6);
+  border-radius: var(--radius-card, 28rpx);
   padding: 28rpx 24rpx;
   margin-bottom: 24rpx;
-  box-shadow: var(--shadow-card, 0 6rpx 20rpx rgba(255, 122, 69, 0.12));
+  box-shadow: var(--shadow-card, 0 2rpx 8rpx rgba(120, 110, 80, 0.06));
 }
 
 .profile-avatar {
   width: 112rpx;
   height: 112rpx;
   border-radius: 50%;
-  background: #F5F5F7;
+  background: var(--chip, rgba(140, 130, 100, 0.08));
   flex-shrink: 0;
 }
 
@@ -30,17 +30,17 @@
 .profile-name {
   font-size: 34rpx;
   font-weight: 600;
-  color: #1A1A1A;
+  color: var(--text-title, #3C3A33);
 }
 
 .profile-sub {
   margin-top: 8rpx;
   font-size: 24rpx;
-  color: #8A8A90;
+  color: var(--text-sub, #8E8B7E);
 }
 
 .profile-arrow {
-  color: #C8C8CE;
+  color: var(--text-faint, #B4B0A4);
   font-size: 32rpx;
 }
 
@@ -60,21 +60,21 @@
 .num {
   font-size: 40rpx;
   font-weight: 700;
-  color: var(--primary, #FF7A45);
+  color: var(--primary, #54684F);
 }
 
 .label {
   font-size: 24rpx;
-  color: #8A8A90;
+  color: var(--text-sub, #8E8B7E);
   margin-top: 6rpx;
 }
 
 .card {
-  background: var(--card, #fff);
-  border-radius: var(--radius-card, 32rpx);
+  background: var(--card, #FBF6E6);
+  border-radius: var(--radius-card, 28rpx);
   padding: 8rpx 24rpx;
   margin-bottom: 24rpx;
-  box-shadow: var(--shadow-card, 0 6rpx 20rpx rgba(255, 122, 69, 0.12));
+  box-shadow: var(--shadow-card, 0 2rpx 8rpx rgba(120, 110, 80, 0.06));
 }
 
 .section-title {
@@ -87,7 +87,7 @@
   display: flex;
   align-items: center;
   padding: 26rpx 0;
-  border-bottom: 1rpx solid #F2F2F4;
+  border-bottom: 1rpx solid var(--line-divider, rgba(140, 130, 100, 0.18));
 }
 
 .row:last-child {
@@ -116,30 +116,30 @@
 }
 
 .del {
-  color: #FF4D4F;
+  color: var(--sem-danger, #CF8B86);
   font-size: 26rpx;
 }
 
 .space-current {
   margin-right: 24rpx;
   font-size: 22rpx;
-  color: var(--primary, #FF7A45);
-  background: var(--primary-tint, #FFF3EE);
+  color: var(--primary, #54684F);
+  background: var(--primary-tint, #D9E2D6);
   padding: 4rpx 16rpx;
   border-radius: 999rpx;
 }
 
 .add {
-  color: var(--primary, #FF7A45);
+  color: var(--primary, #54684F);
 }
 
 .arrow {
-  color: #C8C8CE;
+  color: var(--text-faint, #B4B0A4);
   font-size: 32rpx;
 }
 
 .hint {
-  color: #8A8A90;
+  color: var(--text-sub, #8E8B7E);
   font-size: 24rpx;
 }
 
@@ -150,8 +150,8 @@
 }
 
 .room-chip {
-  background: #F5F5F7;
-  color: #444;
+  background: var(--chip, rgba(140, 130, 100, 0.08));
+  color: var(--text-body, #5C5A50);
   font-size: 26rpx;
   padding: 10rpx 24rpx;
   border-radius: 999rpx;
@@ -162,7 +162,7 @@
 
 .room-del {
   margin-left: 10rpx;
-  color: #B0B0B6;
+  color: var(--text-faint, #B4B0A4);
   font-size: 28rpx;
 }
 
@@ -185,18 +185,18 @@
 }
 
 .theme-item.active .theme-swatch {
-  box-shadow: 0 0 0 3rpx #fff, 0 0 0 6rpx var(--primary, #FF7A45);
+  box-shadow: 0 0 0 3rpx var(--card, #FBF6E6), 0 0 0 6rpx var(--primary, #54684F);
 }
 
 .theme-name {
   margin-top: 10rpx;
   font-size: 22rpx;
-  color: #8A8A90;
+  color: var(--text-sub, #8E8B7E);
 }
 
 .about {
   text-align: center;
-  color: #C0C0C6;
+  color: var(--text-faint, #B4B0A4);
   font-size: 24rpx;
   margin-top: 40rpx;
 }

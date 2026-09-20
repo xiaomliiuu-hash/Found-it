@@ -50,7 +50,7 @@ Page({
     wx.showModal({
       title: '彻底删除',
       content: '删除后无法恢复，照片也会一并删除。',
-      confirmColor: '#FF4D4F',
+      confirmColor: '#CF8B86',
       success: (res) => {
         if (res.confirm) {
           const it = store.deleteFromTrash(id)
@@ -66,7 +66,7 @@ Page({
     wx.showModal({
       title: '清空回收站',
       content: '将彻底删除回收站内全部物品及照片，无法恢复。',
-      confirmColor: '#FF4D4F',
+      confirmColor: '#CF8B86',
       success: (res) => {
         if (res.confirm) {
           const items = store.emptyTrash()

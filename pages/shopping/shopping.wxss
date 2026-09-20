@@ -11,19 +11,19 @@
 .card {
   display: flex;
   align-items: center;
-  background: var(--card, #fff);
-  border-radius: var(--radius-card, 32rpx);
+  background: var(--card, #FBF6E6);
+  border-radius: var(--radius-card, 28rpx);
   padding: 20rpx;
   margin-bottom: 16rpx;
   position: relative;
-  box-shadow: var(--shadow-card, 0 6rpx 20rpx rgba(255, 122, 69, 0.12));
+  box-shadow: var(--shadow-card, 0 2rpx 8rpx rgba(120, 110, 80, 0.06));
 }
 
 .check {
   width: 44rpx;
   height: 44rpx;
   border-radius: 50%;
-  border: 2rpx solid #D8D8DE;
+  border: 2rpx solid var(--line-divider, rgba(140, 130, 100, 0.18));
   margin-right: 16rpx;
   display: flex;
   align-items: center;
@@ -34,15 +34,15 @@
 }
 
 .check.checked {
-  background: var(--primary-grad, linear-gradient(135deg, #FFB199, #FF7A45));
-  border-color: var(--primary, #FF7A45);
+  background: var(--primary-grad, linear-gradient(135deg, #A7BBA5, #54684F));
+  border-color: var(--primary, #54684F);
 }
 
 .icon {
   width: 80rpx;
   height: 80rpx;
-  border-radius: 24rpx;
-  background: var(--primary-tint, #FFF3EE);
+  border-radius: var(--radius-sm, 16rpx);
+  background: var(--primary-tint, #D9E2D6);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -64,13 +64,13 @@
 .sub {
   margin-top: 6rpx;
   font-size: 24rpx;
-  color: #8A8A90;
+  color: var(--text-sub, #8E8B7E);
 }
 
 .badge {
   font-size: 22rpx;
   color: #fff;
-  background: #FF4D4F;
+  background: var(--sem-danger, #CF8B86);
   padding: 4rpx 12rpx;
   border-radius: 999rpx;
   flex-shrink: 0;
@@ -78,5 +78,5 @@
 }
 
 .badge.warn {
-  background: #FFA940;
+  background: var(--sem-warn, #C99A5B);
 }

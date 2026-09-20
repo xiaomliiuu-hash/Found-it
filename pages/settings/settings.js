@@ -5,7 +5,7 @@ const { exportCsvFile, buildCsv } = require('../../utils/csv')
 const { clearDemoItems } = require('../../utils/templates')
 const { getDefaultAvatar } = require('../../utils/avatars')
 
-const MEMBER_COLORS = ['#FF7A45', '#5B8DEF', '#4ECDC4', '#F5A623', '#9B59B6', '#FF6B6B']
+const MEMBER_COLORS = ['#C9977B', '#8BA0C4', '#8FB2AE', '#C9A35E', '#A98FB8', '#C98B8B']
 const ALERT_OPTIONS = [1, 2, 3, 5, 7, 14, 30]
 const SPACE_ICONS = ['🏠', '🏢', '🚗', '🏡', '🏬', '🎒']
 
@@ -116,7 +116,7 @@ Page({
     wx.showModal({
       title: '删除空间',
       content: n > 0 ? ('「' + sp.name + '」下有 ' + n + ' 件物品，删除后物品将移入回收站。') : ('确定删除「' + sp.name + '」吗？'),
-      confirmColor: '#FF4D4F',
+      confirmColor: '#CF8B86',
       success: (res) => {
         if (res.confirm) {
           store.deleteSpace(id)
@@ -153,7 +153,7 @@ Page({
     wx.showModal({
       title: '删除成员',
       content: '确定删除「' + (m && m.name) + '」吗？',
-      confirmColor: '#FF4D4F',
+      confirmColor: '#CF8B86',
       success: (res) => {
         if (res.confirm) {
           store.deleteMember(id)
@@ -191,7 +191,7 @@ Page({
     wx.showModal({
       title: '删除房间',
       content: '确定删除「' + room + '」吗？已记录该房间的物品不受影响。',
-      confirmColor: '#FF4D4F',
+      confirmColor: '#CF8B86',
       success: (res) => {
         if (res.confirm) {
           store.deleteRoom(this.data.currentSpaceId, room)
@@ -211,7 +211,7 @@ Page({
     wx.showModal({
       title: '清空示例数据',
       content: '将删除 ' + n + ' 件示例物品，不影响你手动添加的物品。',
-      confirmColor: '#FF4D4F',
+      confirmColor: '#CF8B86',
       success: (res) => {
         if (res.confirm) {
           clearDemoItems()

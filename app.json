@@ -11,7 +11,7 @@
     "pages/trash/trash"
   ],
   "window": {
-    "navigationBarBackgroundColor": "#FFFFFF",
+    "navigationBarBackgroundColor": "#F7F1DE",
     "navigationBarTitleText": "找到噜",
     "navigationBarTextStyle": "black",
     "backgroundColor": "#F7F1DE",
@@ -25,9 +25,9 @@
   },
   "tabBar": {
     "custom": true,
-    "color": "#9A9AA0",
+    "color": "#8E8B7E",
     "selectedColor": "#54684F",
-    "backgroundColor": "#FFFFFF",
+    "backgroundColor": "#F7F1DE",
     "borderStyle": "white",
     "list": [
       {

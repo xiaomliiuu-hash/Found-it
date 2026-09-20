@@ -6,31 +6,56 @@ page {
   --primary-grad: linear-gradient(135deg, #A7BBA5, #54684F);
 
   /* 中性设计 token */
-  --bg: #F7F1DE;
   --bg-paper: #F7F1DE;
   --card: #FBF6E6;
+  --surface: #FFFDF6;
+  --chip: rgba(140, 130, 100, 0.08);
   --text-1: #3C3A33;
   --text-2: #8E8B7E;
   --text-title: #3C3A33;
   --text-body: #5C5A50;
   --text-sub: #8E8B7E;
-  --line: rgba(140, 130, 100, 0.18);
+  --text-faint: #B4B0A4;
   --line-divider: rgba(140, 130, 100, 0.18);
+  --line-strong: rgba(140, 130, 100, 0.28);
   --radius-card: 28rpx;
   --radius-sm: 16rpx;
+  --radius-lg: 32rpx;
   --radius-pill: 999rpx;
-  --primary-soft: #A7BBA5;
-  --shadow-card: 0 4rpx 16rpx rgba(120, 110, 80, 0.08);
-  --shadow-float: 0 10rpx 28rpx rgba(120, 110, 80, 0.12);
+  --shadow-card: 0 2rpx 8rpx rgba(120, 110, 80, 0.06);
+  --shadow-float: 0 8rpx 24rpx rgba(120, 110, 80, 0.10);
 
-  /* 牛皮纸底色 + 轻微噪点纹理 */
+  /* 语义状态色（muted pastel） */
+  --sem-danger: #CF8B86;
+  --sem-danger-bg: #F6E9E7;
+  --sem-warn: #C99A5B;
+  --sem-warn-bg: #F5EDE1;
+  --sem-ok: #86A388;
+  --sem-ok-bg: #EAF0E8;
+  --sem-info: #7E96B5;
+  --sem-info-bg: #E7ECF4;
+
+  /* 牛皮纸底色 + 手工纸纤维颗粒（多层极淡径向渐变） */
   background-color: var(--bg-paper);
   background-image:
-    radial-gradient(120% 90% at 50% 0%, rgba(255, 255, 255, 0.40) 0%, rgba(255, 255, 255, 0) 60%),
-    radial-gradient(rgba(120, 110, 80, 0.05) 1rpx, transparent 1rpx),
-    radial-gradient(rgba(120, 110, 80, 0.03) 1rpx, transparent 1rpx);
-  background-size: 100% 100%, 22rpx 22rpx, 36rpx 36rpx;
-  background-position: 0 0, 0 0, 9rpx 13rpx;
+    radial-gradient(120% 90% at 50% 0%, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 55%),
+    radial-gradient(85% 65% at 18% 30%, rgba(140, 120, 90, 0.03) 0%, rgba(140, 120, 90, 0) 70%),
+    radial-gradient(75% 60% at 82% 72%, rgba(140, 120, 90, 0.04) 0%, rgba(140, 120, 90, 0) 70%),
+    radial-gradient(rgba(110, 100, 70, 0.05) 1rpx, transparent 2.2rpx),
+    radial-gradient(rgba(130, 118, 88, 0.04) 0.9rpx, transparent 2rpx),
+    radial-gradient(rgba(100, 90, 60, 0.045) 1.2rpx, transparent 2.4rpx),
+    radial-gradient(rgba(255, 255, 255, 0.05) 0.8rpx, transparent 1.8rpx);
+  background-size:
+    100% 100%,
+    100% 100%,
+    100% 100%,
+    17rpx 17rpx,
+    11rpx 11rpx,
+    29rpx 29rpx,
+    23rpx 23rpx;
+  background-position:
+    0 0, 0 0, 0 0,
+    0 0, 4rpx 6rpx, 9rpx 13rpx, 15rpx 19rpx;
   color: var(--text-1);
   font-size: 28rpx;
   line-height: 1.5;

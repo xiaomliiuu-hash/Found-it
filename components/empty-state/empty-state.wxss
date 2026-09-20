@@ -9,11 +9,11 @@
   width: 200rpx;
   height: 200rpx;
   border-radius: 50%;
-  background: var(--primary-tint, #FFF3EE);
+  background: var(--primary-tint, #D9E2D6);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: var(--shadow-card, 0 6rpx 20rpx rgba(255, 122, 69, 0.12));
+  box-shadow: var(--shadow-card, 0 2rpx 8rpx rgba(120, 110, 80, 0.06));
 }
 
 .icon {
@@ -23,6 +23,6 @@
 
 .text {
   margin-top: 32rpx;
-  color: var(--text-2, #8A8A90);
+  color: var(--text-2, #8E8B7E);
   font-size: 28rpx;
 }

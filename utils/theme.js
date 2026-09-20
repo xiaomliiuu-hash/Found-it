@@ -4,9 +4,9 @@ const store = require('./store')
 
 const THEMES = [
   { name: '橄榄绿', color: '#54684F', tint: '#D9E2D6', glow: 'rgba(84, 104, 79, 0.12)', grad: 'linear-gradient(135deg, #A7BBA5, #54684F)' },
-  { name: '清新蓝', color: '#5B8DEF', tint: '#EAF1FF', glow: 'rgba(91, 141, 239, 0.12)', grad: 'linear-gradient(135deg, #A8C4FF, #5B8DEF)' },
-  { name: '焦糖', color: '#B8834A', tint: '#F3E7D5', glow: 'rgba(184, 131, 74, 0.12)', grad: 'linear-gradient(135deg, #E0C29A, #B8834A)' },
-  { name: '樱花紫', color: '#9B59B6', tint: '#F5ECFA', glow: 'rgba(155, 89, 182, 0.12)', grad: 'linear-gradient(135deg, #D3B6E8, #9B59B6)' }
+  { name: '清新蓝', color: '#7E96B5', tint: '#E7ECF4', glow: 'rgba(126, 150, 181, 0.12)', grad: 'linear-gradient(135deg, #B4C4D8, #7E96B5)' },
+  { name: '焦糖', color: '#A9896B', tint: '#EFE7DA', glow: 'rgba(169, 137, 107, 0.12)', grad: 'linear-gradient(135deg, #D2C0A6, #A9896B)' },
+  { name: '樱花紫', color: '#9A87B3', tint: '#EBE6F0', glow: 'rgba(154, 135, 179, 0.12)', grad: 'linear-gradient(135deg, #C4B7D6, #9A87B3)' }
 ]
 
 const DEFAULT_THEME = THEMES[0]

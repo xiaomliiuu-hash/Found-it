@@ -1,12 +1,12 @@
 .card {
   display: flex;
   align-items: center;
-  background: transparent;
-  border-radius: 0;
-  padding: 24rpx 4rpx;
-  margin-bottom: 0;
+  background: var(--card, #FBF6E6);
+  border-radius: var(--radius-card, 28rpx);
+  padding: 24rpx;
+  margin-bottom: 16rpx;
   position: relative;
-  border-bottom: 1rpx solid var(--line-divider, rgba(140, 130, 100, 0.18));
+  box-shadow: var(--shadow-card, 0 2rpx 8rpx rgba(120, 110, 80, 0.06));
 }
 
 .thumb-wrap {
@@ -19,7 +19,7 @@
   width: 120rpx;
   height: 120rpx;
   border-radius: var(--radius-sm, 20rpx);
-  background: var(--primary-tint, #FFF3EE);
+  background: var(--primary-tint, #D9E2D6);
 }
 
 .thumb-empty {
@@ -81,13 +81,13 @@
 }
 
 .tag-borrowed {
-  color: #5B8DEF;
-  background: #EAF1FF;
+  color: var(--sem-info, #7E96B5);
+  background: var(--sem-info-bg, #E7ECF4);
 }
 
 .tag-lowstock {
-  color: #E88800;
-  background: #FFF4E6;
+  color: var(--sem-warn, #C99A5B);
+  background: var(--sem-warn-bg, #F5EDE1);
 }
 
 .tag-usedup {
@@ -118,14 +118,14 @@
   transition: width 0.3s ease;
 }
 
-.p-green { background: #3FB68B; }
-.p-orange { background: #FFA940; }
-.p-red { background: #FF4D4F; }
+.p-green { background: var(--sem-ok, #86A388); }
+.p-orange { background: var(--sem-warn, #C99A5B); }
+.p-red { background: var(--sem-danger, #CF8B86); }
 
 .badge {
   position: absolute;
-  top: 12rpx;
-  right: 4rpx;
+  top: 16rpx;
+  right: 16rpx;
   font-size: 20rpx;
   color: #fff;
   padding: 4rpx 12rpx;
@@ -133,9 +133,9 @@
 }
 
 .badge.expired {
-  background: #FF4D4F;
+  background: var(--sem-danger, #CF8B86);
 }
 
 .badge.soon {
-  background: #FFA940;
+  background: var(--sem-warn, #C99A5B);
 }

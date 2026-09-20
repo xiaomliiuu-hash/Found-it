@@ -95,7 +95,7 @@
   right: 0;
   top: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.55);
+  background: rgba(60, 58, 51, 0.45);
   z-index: 999;
   display: flex;
   align-items: center;
@@ -205,7 +205,7 @@
   font-size: 56rpx;
   font-weight: 700;
   line-height: 1.2;
-  color: #7FA57C;
+  color: var(--primary, #54684F);
 }
 
 .dstat-label {
@@ -215,11 +215,11 @@
 }
 
 .d-warn {
-  color: #FFA940;
+  color: var(--sem-warn, #C99A5B);
 }
 
 .d-danger {
-  color: #FF4D4F;
+  color: var(--sem-danger, #CF8B86);
 }
 
 .dash-bars {
@@ -454,7 +454,7 @@
   right: 0;
   top: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.55);
+  background: rgba(60, 58, 51, 0.45);
   z-index: 1100;
   display: flex;
   align-items: center;

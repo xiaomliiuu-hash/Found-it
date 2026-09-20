@@ -48,7 +48,7 @@ function computeStats(items, categories) {
   })
   const total = items.length
   const categoryDist = Object.keys(counter).map((id) => {
-    const c = catMap[id] || { name: '未分类', icon: '📦', color: '#BDC3C7' }
+    const c = catMap[id] || { name: '未分类', icon: '📦', color: '#9B9B96' }
     return {
       id,
       name: c.name,

@@ -3,7 +3,7 @@ const theme = require('../../utils/theme')
 const { genId } = require('../../utils/id')
 
 const EMOJIS = ['📦', '🍎', '🥦', '🍞', '🥛', '🍶', '💊', '💄', '🧴', '👕', '👟', '🧥', '🔧', '🔨', '🔌', '💡', '📱', '💻', '📚', '📄', '🧹', '🧺', '🍼', '🐾', '⚽', '🏀', '🎨', '💍', '🎁', '🧸', '🔑', '✂️', '🧵', '🌿', '🍵', '🥫', '🧊', '🧃', '🛠️', '🖊️']
-const COLORS = ['#FF6B6B', '#FF7A45', '#F5A623', '#FFD23F', '#5B8DEF', '#4ECDC4', '#3FB68B', '#2D9C4E', '#9B59B6', '#E91E8C', '#00B4D8', '#8D6E63', '#7F8C8D', '#BDC3C7']
+const COLORS = ['#C98B8B', '#C9977B', '#C9A35E', '#C4B57E', '#8BA0C4', '#8FB2AE', '#93B58E', '#A3B88C', '#A98FB8', '#C995A8', '#82A9B5', '#A98F76', '#9B9B96', '#AFAFA6']
 
 Page({
   data: {
@@ -11,7 +11,7 @@ Page({
     isEdit: false,
     name: '',
     icon: '📦',
-    color: '#FF7A45',
+    color: '#C98B8B',
     emojis: EMOJIS,
     colors: COLORS,
     themeStyle: ''
@@ -22,7 +22,7 @@ Page({
     if (options.id) {
       const c = store.getCategoryById(options.id)
       if (c) {
-        this.setData({ id: options.id, isEdit: true, name: c.name, icon: c.icon || '📦', color: c.color || '#FF7A45' })
+        this.setData({ id: options.id, isEdit: true, name: c.name, icon: c.icon || '📦', color: c.color || '#C98B8B' })
         wx.setNavigationBarTitle({ title: '编辑分类' })
       }
     } else {
@@ -62,7 +62,7 @@ Page({
       wx.showModal({
         title: '删除分类',
         content: '确定删除「' + this.data.name + '」吗？',
-        confirmColor: '#FF4D4F',
+        confirmColor: '#CF8B86',
         success: (res) => {
           if (res.confirm) {
             store.deleteCategory(id)
@@ -76,7 +76,7 @@ Page({
       title: '删除分类',
       content: '该分类下有 ' + count + ' 件物品，删除后如何处理？',
       confirmText: '继续',
-      confirmColor: '#FF4D4F',
+      confirmColor: '#CF8B86',
       success: (res) => {
         if (!res.confirm) return
         wx.showActionSheet({

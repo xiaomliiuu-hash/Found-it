@@ -159,7 +159,7 @@ Page({
     wx.showModal({
       title: '丢弃物品',
       content: '「' + item.name + '」将移入回收站，可随时恢复。',
-      confirmColor: '#FF4D4F',
+      confirmColor: '#CF8B86',
       success: (res) => {
         if (res.confirm) {
           store.deleteItem(item.id)
